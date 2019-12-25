@@ -1,0 +1,104 @@
+{% load static from staticfiles %}
+
+<html>
+<head>
+	<title>ДарМебель</title>
+
+	<!-- meta -->
+	<meta charset="utf-8">
+
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="{% static 'store/css/main.css' %}">
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<!-- script links -->
+
+</head>
+<body>
+
+<!-- base -->
+
+	<div class="header" id="flex">
+		<div class="mainWrap">
+			<div class="logo">
+				<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
+				<svg version="1.1"
+					 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+					 x="0px" y="0px" width="41.1px" height="19px" viewBox="0 0 41.1 19" style="overflow:scroll;enable-background:new 0 0 41.1 19;"
+					 xml:space="preserve">
+				<style type="text/css">
+					.st0{fill:none;stroke:url(#SVGID_1_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+					.st1{fill:none;stroke:url(#SVGID_2_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+					.st2{fill:none;stroke:url(#SVGID_3_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+					.st3{fill:none;stroke:url(#SVGID_4_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+				</style>
+				<defs>
+				</defs>
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-0.5881" y1="1.6574" x2="15.0814" y2="17.3269">
+					<stop  offset="0" style="stop-color:#E9CE00"/>
+					<stop  offset="1" style="stop-color:#FF3F3F"/>
+				</linearGradient>
+				<path class="st0" d="M9.5,17.2H1.8V1.8h7.7c4.2,0,7.7,3.4,7.7,7.7v0C17.2,13.7,13.7,17.2,9.5,17.2z"/>
+				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="22.6359" y1="0.5347" x2="40.5509" y2="18.4497">
+					<stop  offset="0" style="stop-color:#E90700"/>
+					<stop  offset="1" style="stop-color:#2E2AFF"/>
+				</linearGradient>
+				<polyline class="st1" points="39.3,17.2 39.3,1.8 31.6,11.3 23.9,1.8 23.9,17.2 "/>
+				</svg>
+
+
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a href="">Главная</a></li>
+					<li><a href="">Каталог</a></li>
+					<li><a href="">Контакты</a></li>
+					<li><a href="">О нас</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap">
+
+	<div class="content">
+		<div class="mainWrap">
+			<div>
+				{% block content %}
+
+    			{% endblock %}
+			</div>
+		</div>
+	</div>
+
+    <!-- base -->
+		<div class="footer">
+			<div class="mainWrap">
+				<div>
+					<span style="font-weight: bold; font-family: 'Google Sans">Дар</span>Мебель <span style="color: #adadad">© 2019 все права защищены</span>
+					<ul class="footerMenu">
+						<li><a href="">Главная</a></li>
+						<li><a href="">Каталог</a></li>
+						<li><a href="">Контакты</a></li>
+						<li><a href="">О нас</a></li>
+					</ul>
+				</div>
+				<div class="rightFooter">
+					<p>darmebel@gmail.com</p><br>
+					<p><span style="color: #adadad">Разработано в</span> Студии Искандера Каримова</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

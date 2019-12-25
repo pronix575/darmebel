@@ -1,0 +1,174 @@
+@font-face {
+	font-family: 'Google Sans';
+	src: url('../static/fonts/ProductSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'googleSansBold';
+	src: url('/fonts/ProductSans-Bold.ttf');
+}
+
+* {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto';
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+#flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrap {
+	width: 100%;
+}
+
+.header {
+	z-index: 2;
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	font-weight: bold;
+	background: rgb(255,255,255);
+	box-shadow: 0 6px 10px rgb(0,0,0,.3);
+	padding: 3px 0 0 0;
+}
+
+.menu ul {
+	display: flex;
+	justify-content: center;
+}
+
+.menu li {
+	margin: 0 15px 0 15px;
+}
+
+.menu li a {
+	text-decoration: none;
+	color: black;
+}
+
+.menu li a:hover {
+	color: #4400ff;
+}
+
+
+.content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.preview {
+	background-clip: border-box;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	width: 100%;
+	height: 500px;
+	color: white;
+	padding: 1px;
+	box-shadow: inset 0 -35px 40px rgb(0,0,0,.5);
+}
+
+.bottomInfo {
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	margin-top: 450px;
+}
+
+.mainWrap {
+	padding: 0 25px 0 25px;
+	width: 800px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nameOfFurniture {
+
+}
+
+.photoPosition {
+	display: flex;
+}
+
+.circle {
+	margin: 5px;
+	width: 12px;
+	height: 12px;
+	border: 2px solid white;
+	border-radius: 50%;
+	margin-top: 12px;
+}
+
+#circleMain {
+	background: white;
+}
+
+.catalog {
+	width: 800px;
+}
+
+.furnitureInfo {
+	background-clip: border-box;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	height: 300px;
+	width: 100%;
+	margin: 25px 0 0 0;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: inset 0 -35px 40px rgb(0,0,0,.5);
+}
+
+.furnitureInfo h3 {
+	color: white;
+	margin-top: 240px;
+}
+
+.map {
+	width: 100%;
+	border-radius: 15px;
+	height: 400px;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0 10px;
+	margin-top: 20px;
+	width: 100%;
+	background: #353535;
+	color: white;
+	font-size: 12px;
+}
+
+.footerMenu {
+	display: flex;
+	margin-top: 10px;
+}
+
+.footerMenu li {
+	padding-right: 10px;
+}
+
+.footerMenu li a {
+	text-decoration: none;
+	color: #adadad;
+}
+
+.rightFooter p {
+	padding: 0 0 10px 0;
+	float: right;
+}

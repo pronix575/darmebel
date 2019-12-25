@@ -1,0 +1,15 @@
+{% extends 'store/base.html' %}
+
+{% block content %}	
+
+{% for work in works %}
+	<div class="catalog">
+		<div class="furnitureInfo" style="background-image: url({{ work.preview.url }});">
+			<h3>{{ work.name }}</h3>
+			<p>{{ work.category.name }}</p>
+		</div>
+	</div>
+{% endfor %}
+
+
+{% endblock %}	
