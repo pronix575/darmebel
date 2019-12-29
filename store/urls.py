@@ -6,5 +6,7 @@ from .views import CategoryList
 
 urlpatterns = [
     path('', views.main_list, name='main_list'),
+    path('work/<int:pk>/', views.work_detail, name="work_detail"),
+    path('catalog/<int:pk>/', views.catalogOfWorksInCategory, name="catalogOfWorksInCategory"),
     path('categories', CategoryList.as_view())
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

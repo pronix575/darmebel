@@ -1,6 +1,7 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
+
 			<div class="menu">
 				<ul>
 					<li><a href="/" style="">Главная</a></li>
@@ -16,29 +17,29 @@
 		</div>
 	</div>
 
-	<style type="text/css">
-		.footer {
-			margin-top: 20px;
-		}
-	</style>
-
 	<div class="wrap">
 
-		<div class="content">
-				<div class="wrap">			
-					<div class="contentBlockWrap">
-						<div id="contentBlockCategories">
-							{% for category in category_list %}
-							<a href="{% url 'catalogOfWorksInCategory' pk=category.pk %}">
-								<div id="contentBlock" style="background-image: url({{ category.preview.url }});"> 
-									<div>
-										<p>{{ category.name }}</p></p>
-									</div>
-								</div>
-							</a>	
-							{% endfor %}
-						</div>
-					</div>	
+		<style type="text/css">
+						.footer {
+							margin-top: 20px;
+						}
+					</style>
 
+		<div class="content">
+				<div class="wrap">
+
+					<img class="detailImg" src="{{ work.preview.url }}">
+					
+					<div id="flex">
+						<div class="mainWrap">
+							<div class="wrap">
+								<div class="description">
+									<div>
+										{{ work.description|safe }}
+									</div>	
+								</div>
+							</div>
+						</div>	
+					</div>		
 
 {% endblock %}

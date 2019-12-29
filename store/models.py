@@ -16,6 +16,7 @@ class Work(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    description = models.TextField(default="")
 
     def publish(self):
         self.published_date = timezone.now()

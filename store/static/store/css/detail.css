@@ -1,0 +1,12 @@
+.detailImg {
+	width: 100%;
+}
+
+.description {
+	display: flex;
+	justify-content: center;
+}
+
+.description p, h1, h2, h3 {
+	margin-top: 20px; 
+}
