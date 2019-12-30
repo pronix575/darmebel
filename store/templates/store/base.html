@@ -11,10 +11,11 @@
 	<!-- styles -->
 	<link rel="stylesheet" type="text/css" href="{% static 'store/css/main.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'store/css/slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'store/css/search.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'store/css/detail.css' %}">
 
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static 'store/css/detail.css' %}">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -27,7 +28,7 @@
 <!-- base -->
 	<div class="header" id="flex">
 		<div class="mainWrap">
-			<div class="logo">
+			<a href="/" class="logo">
 				<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
 				<svg version="1.1"
 					 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
@@ -54,17 +55,17 @@
 				</svg>
 
 
-			</div>
+			</a>
 			<div class="menu">
 				<ul>
-					<li style="border-bottom: 3px solid #4400ff;"><a href="/" style="">Главная</a></li>
-					<li><a href="/categories">Каталог</a></li>
-					<li><a href="">Контакты</a></li>
-					<li><a href="">О нас</a></li>
+					<li class="menu-main"><a href="/" style="">Главная</a></li>
+					<li class="menu-catalog"><a href="/categories">Каталог</a></li>
+					<li class="menu-contacts"><a href="">Контакты</a></li>
+					<li class="menu-about_us"><a href="">О нас</a></li>
 				</ul>
 			</div>
 
-			<div class="search">
+			<div class="search" style="background: none; box-shadow: none; border: none; font-size: 18px">
 				<i class="fa fa-search"></i>
 			</div>
 		</div>
@@ -73,11 +74,10 @@
 		<div class="wrap">
 
 		<div class="content">
-				<div class="wrap">
-
-					{% block content %}
-					{% endblock %}
-				</div>
+			<div class="wrap">
+				{% block content %}
+				{% endblock %}
+			</div>
 		</div>
 
     <!-- base -->
@@ -100,6 +100,7 @@
 	</div>	
 
 	<script src="{% static 'store/js/slider.js' %}"></script>
+	<script src="{% static 'store/js/search.js' %}" type="text/javascript"></script>
 
 </div>
 

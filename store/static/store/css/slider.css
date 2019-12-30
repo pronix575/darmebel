@@ -14,7 +14,7 @@
     }
 
     .slider__control {
-      margin: 25px;
+      margin: 15px 25px 0 25px;
       border-radius: 50%;
       position: absolute;
       top: 50%;

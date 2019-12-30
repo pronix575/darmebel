@@ -24,3 +24,6 @@ class CategoryList(ListView):
     queryset = Category.objects.all()
     context_object_name = 'category_list'
     template_name = 'store/category_list.html'
+
+def search(request):
+    return render(request, 'store/search.html', {})
