@@ -30,6 +30,13 @@ body {
 
 .wrap {
 	width: 100%;
+	justify-content: space-between; 
+	flex-direction: column;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 }
 
 .header {
@@ -41,11 +48,10 @@ body {
 	position: fixed;
 	font-weight: bold;
 	background: rgb(255,255,255);
-	box-shadow: 0 6px 10px rgb(0,0,0,.3);
+	box-shadow: 0 6px 10px rgb(0,0,0,.3)
 }
 
 .logo, .search{
-	width: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
