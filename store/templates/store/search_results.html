@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+		<style type="text/css">
+			.paragraph {
+				margin: 20px 0 0 40px;
+			}
+
+		    .uuu {
+				margin: 30px 0 0 20px;
+			}
+		</style>
+
+	<h3 class="uuu">Юниты:</h3>
+
+	{% for work in results %}
+
+		<p class="paragraph">{{ work.name }}</p>
+
+	{% endfor %}	
+
+	<h3 class="uuu">Категории:</h3>
+
+	{% for category in categories %}
+
+		<p class="paragraph">{{ category.name }}</p>
+
+	{% endfor %}
+{% endblock %}				

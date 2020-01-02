@@ -18,6 +18,7 @@
 }
 
 body {
+	z-index: 0;
 	display: flex;
 	justify-content: center;
 }
@@ -231,7 +232,7 @@ body {
 	padding-right: 10px;
 }
 
-.footerMenu li a {
+.footerMenu li a 
 	text-decoration: none;
 	color: #adadad;
 }
