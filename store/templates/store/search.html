@@ -1,14 +1,23 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-	<div class="search-wrap" id="flex">
-		<div class="mainWrap">
-			<div id="flex">
+	<style type="text/css">
+		.search { border-bottom: 3px solid #4400ff; }
+	</style>
+
+	<div class="contentBlockWrap" style="margin-top: 20px;">
+	<div id="contentBlockCategories">
+				<h3 style="color: black">Поиcк по сайту:</h3>
+
 				<form class="searchField" action="{% url 'search results' %}" method="get">
-					<input placeholder="поиск..." name="q" type="text">
+					<input placeholder="поиск..." name="q" type="text" class="searchFieldInput">
+					
+					<div style="margin-left: 20px;">
+						<button class="submitButton" type="submit">найти<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>	
-	</div>
 
 {% endblock %}				

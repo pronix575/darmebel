@@ -44,3 +44,9 @@ def search_list(request):
     return render(request, 'store/search_results.html', {
         'works': works, 'categories': categories
     })
+
+def contacts(request):
+    return render(request, 'store/contacts.html', {})
+
+def about_us(request):
+    return render(request, 'store/about_us.html', {})

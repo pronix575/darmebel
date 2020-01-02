@@ -11,19 +11,55 @@
 			}
 		</style>
 
-	<h3 class="uuu">Юниты:</h3>
+	<style type="text/css">
+		.search { border-bottom: 3px solid #4400ff; }
+	</style>
+	
+	<div class="contentBlockWrap" style="margin-top: 20px;">
+		<div id="contentBlockCategories">
+			<h3 style="color: black">Поиcк по сайту:</h3>
 
-	{% for work in works %}
+			<form class="searchField" action="{% url 'search results' %}" method="get">
+				<input placeholder="поиск..." name="q" type="text" class="searchFieldInput">
+				<div style="margin-left: 20px;">
+					<button class="submitButton" type="submit">найти<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>	
 
-		<p class="paragraph">{{ work.name }}</p>
+	<style type="text/css">
+		.footer {
+			margin-top: 20px;
+		}
+	</style>
 
-	{% endfor %}	
+	<div class="contentBlockWrap">
+		<div id="contentBlockCategories">
+			{% for work in works %}
+			<a href="{% url 'work_detail' pk=work.pk %}">
+				<div id="contentBlock" style="background-image: url({{ work.preview.url }});"> 
+					<div>
+						<p>{{ work.name }}</p></p>
+					</div>
+				</div>
+			</a>	
+			{% endfor %}
+		</div>
+	</div>		
 
-	<h3 class="uuu">Категории:</h3>
-
-	{% for category in categories %}
-
-		<p class="paragraph">{{ category.name }}</p>
-
-	{% endfor %}
+	<div class="contentBlockWrap">
+		<div id="contentBlockCategories">
+			{% for category in categories %}
+			<a href="{% url 'catalogOfWorksInCategory' pk=category.pk %}">
+				<div id="contentBlock" style="background-image: url({{ category.preview.url }});"> 
+					<div>
+						<p>{{ category.name }}</p></p>
+					</div>
+				</div>
+			</a>	
+			{% endfor %}
+		</div>
+	</div>		
 {% endblock %}				
