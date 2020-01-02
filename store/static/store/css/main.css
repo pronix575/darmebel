@@ -1,11 +1,11 @@
-/*@font-face {
+@font-face {
 	font-family: 'Google Sans';
-	src: url('/static/fonts/ProductSans-Regular.ttf');
-}*/
+	src: url(/static/fonts/ProductSans-Regular.ttf);
+}
 
 /@font-face {
 	font-family: 'googleSansBold';
-	src: url('/fonts/ProductSans-Bold.ttf');
+	src: url('static/fonts/ProductSans-Bold.ttf');
 }
 
 * {
@@ -27,6 +27,13 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.mainWrap {
+	padding: 0 20px 0 20px;
+	width: 800px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .wrap {
@@ -158,13 +165,6 @@ body {
 	justify-content: center;
 }
 
-.mainWrap {
-	padding: 0 20px 0 20px;
-	width: 800px;
-	display: flex;
-	justify-content: space-between;
-}
-
 .nameOfFurniture {
 
 }
@@ -232,7 +232,7 @@ body {
 	padding-right: 10px;
 }
 
-.footerMenu li a 
+.footerMenu li a {
 	text-decoration: none;
 	color: #adadad;
 }

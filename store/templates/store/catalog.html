@@ -2,33 +2,34 @@
 
 {% block content %}
 
-					<style type="text/css">.menu-catalog { border-bottom: 3px solid #4400ff; }</style>
+	<style type="text/css">.menu-catalog { border-bottom: 3px solid #4400ff; }</style>
 
-					<div id="flex">
-						<div class="mainWrap">
-							<div class="wrap">
-								<h2 style="margin-top: 40px">{{ category.name }}</h2>
-							</div>
-						</div>
+	<div id="flex">
+		<div class="mainWrap">
+			<div class="wrap">
+				<h2 style="margin-top: 40px">{{ category.name }}</h2>
+			</div>
+		</div>
+	</div>
+
+	<style type="text/css">
+		.footer {
+			margin-top: 20px;
+		}
+	</style>
+
+	<div class="contentBlockWrap">
+		<div id="contentBlockCategories">
+			{% for work in works %}
+			<a href="{% url 'work_detail' pk=work.pk %}">
+				<div id="contentBlock" style="background-image: url({{ work.preview.url }});"> 
+					<div>
+						<p>{{ work.name }}</p></p>
 					</div>
-
-					<style type="text/css">
-						.footer {
-							margin-top: 20px;
-						}
-					</style>
-
-					<div class="contentBlockWrap">
-						<div id="contentBlockCategories">
-							{% for work in works %}
-							<a href="{% url 'work_detail' pk=work.pk %}">
-								<div id="contentBlock" style="background-image: url({{ work.preview.url }});"> 
-									<div>
-										<p>{{ work.name }}</p></p>
-									</div>
-								</div>
-							</a>	
-							{% endfor %}
-						</div>
-					</div>	
+				</div>
+			</a>	
+			{% endfor %}
+		</div>
+	</div>	
+	
 {% endblock %}					

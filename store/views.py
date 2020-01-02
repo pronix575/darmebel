@@ -35,15 +35,12 @@ class CategoryList(ListView):
 def search(request):
     return render(request, 'store/search.html', {})
 
-class SearchResultsView(ListView):
-    model = Work
-    context_object_name = 'results'
-    template_name = 'store/search_results.html'
+def search_list(request):
+    query = request.GET.get('q')
 
-    def get_queryset(self):  # новый
-        query = self.request.GET.get('q')
-        object_list = Work.objects.filter(
-            Q(name=query)
-        )
+    works = Work.objects.filter(Q(name=query))
+    categories = Category.objects.filter(Q(name=query))
 
-        return object_list
+    return render(request, 'store/search_results.html', {
+        'works': works, 'categories': categories
+    })

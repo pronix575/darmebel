@@ -2,14 +2,13 @@
 
 {% block content %}
 	<div class="search-wrap" id="flex">
-		<div class="search-flex-wrap">
-			<div></div>
-
+		<div class="mainWrap">
 			<div id="flex">
 				<form class="searchField" action="{% url 'search results' %}" method="get">
 					<input placeholder="поиск..." name="q" type="text">
 				</form>
 			</div>
-		</div>
+		</div>	
 	</div>
+
 {% endblock %}				

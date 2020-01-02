@@ -1,12 +1,29 @@
 .detailImg {
-	width: 100%;
+	width: 800px;
+	border-radius: 15px;
 }
 
 .description {
+	padding: 0 40px 0 40px;
 	display: flex;
 	justify-content: center;
 }
 
 .description p, h1, h2, h3 {
 	margin-top: 20px; 
+}
+
+.imgWrap {	
+	margin-top: 40px;
+}
+
+@media(max-width: 1080px) {
+
+	.detailImg {
+		width: 100%;
+	}
+		
+	.imgWrap {
+		padding: 0 20px 0 20px;
+	}
 }

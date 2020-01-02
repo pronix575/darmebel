@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from . import views
-from .views import CategoryList, SearchResultsView
+from .views import CategoryList
 
 urlpatterns = [
     path('', views.main_list, name='main_list'),
@@ -10,5 +10,5 @@ urlpatterns = [
     path('catalog/<int:pk>/', views.catalogOfWorksInCategory, name="catalogOfWorksInCategory"),
     path('categories', CategoryList.as_view()),
     path('search', views.search, name="search"),
-    path('search results', SearchResultsView.as_view(), name="search results"),
+    path('search results', views.search_list, name="search results"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
