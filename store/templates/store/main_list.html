@@ -7,7 +7,7 @@
 	<div class="slider__wrapper">
 	
 	{% for work in works reversed %}
-		<a href="{% url 'work_detail' pk=work.pk %}" class="slider__item">
+		<a href="{% url 'work_detail' pk=work.work.pk %}" class="slider__item">
 	    	<div class="contentBlock" style="background-image: url({{ work.work.preview.url }}); ">
 	    		<div class="contentBlockWrap">
 		    		<div class="contentBlockText">
