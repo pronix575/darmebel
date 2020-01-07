@@ -1,5 +1,9 @@
 .search:hover {
-	color: #4400ff;
+	color: #0006ad;
+}
+
+.search {
+	border-bottom: 3px solid #0006ad;
 }
 
 .search-wrap {
@@ -41,7 +45,7 @@
 	border-radius: 10px;
 	padding: 10px 13px 10px 13px;	
 	color: white;
-	background: #4400ff;
+	background: #0006ad;
 }
 
 .close {
@@ -50,7 +54,7 @@
 	margin-left: 10px;
 	width: 35px;
 	height: 35px;
-	background: #4400ff;
+	background: #0006ad;
 	color: white;
 	display: flex;
 	justify-content: center;

@@ -1,18 +1,18 @@
 {% extends 'store/base.html' %}
 
 {% block content %}	
-<style type="text/css">.menu-main { border-bottom: 3px solid #4400ff; }</style>
+<style type="text/css">.menu-main { border-bottom: 3px solid #0006ad; }</style>
 
 <div class="slider">
 	<div class="slider__wrapper">
 	
-	{% for work in works %}
+	{% for work in works reversed %}
 		<a href="{% url 'work_detail' pk=work.pk %}" class="slider__item">
-	    	<div class="contentBlock" style="background-image: url({{ work.preview.url }}); ">
+	    	<div class="contentBlock" style="background-image: url({{ work.work.preview.url }}); ">
 	    		<div class="contentBlockWrap">
 		    		<div class="contentBlockText">
-				    	<p>{{ work.name }}</p> 
-				    	<p>{{ work.price }} ₽</p>
+				    	<p>{{ work.work.name }}</p> 
+				    	<p>{{ work.work.price }} ₽</p>
 		    		</div>
 		    	</div>	
 	    	</div>    
@@ -28,7 +28,7 @@
 
 <div class="contentBlockWrap">
 	<div id="contentBlockCategories">
-		{% for category in categories %}
+		{% for category in categories reversed %}
 		<a href="{% url 'catalogOfWorksInCategory' pk=category.pk %}">
 			<div id="contentBlock" style="background-image: url({{ category.preview.url }});"> 
 				<div>

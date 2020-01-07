@@ -25,3 +25,5 @@ class Work(models.Model):
     def __str__(self):
         return self.name
 
+class PreviewWork(models.Model):
+    work = models.ForeignKey(Work, on_delete=models.CASCADE)

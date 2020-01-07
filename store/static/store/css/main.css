@@ -66,26 +66,26 @@ body {
 	color: black;
 }
 
-.menu ul {
+.menu {
 	display: flex;
 	justify-content: center;
 }
 
-.menu ul li {
+#headerWrap li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 50px;
-	margin: 0 15px 0 15px;
+	color: black;
 }
 
-.menu li a {
+#headerWrap li a {
 	text-decoration: none;
 	color: black;
 }
 
-.menu li a:hover {
-	color: #4400ff;
+#headerWrap li a:hover {
+	color: #0006ad;
 }
 
 

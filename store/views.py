@@ -1,11 +1,10 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
-from django.utils import timezone
-from .models import Work, Category
+from .models import Work, Category, PreviewWork
 from django.db.models import Q
 
 def main_list(request):
-    works = Work.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    works = PreviewWork.objects.all()
     categories = Category.objects.all()
 
     return render(request, 'store/main_list.html', {
@@ -42,7 +41,8 @@ def search_list(request):
     categories = Category.objects.filter(Q(name=query))
 
     return render(request, 'store/search_results.html', {
-        'works': works, 'categories': categories
+        'works': works,
+        'categories': categories
     })
 
 def contacts(request):
