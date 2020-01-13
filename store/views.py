@@ -6,7 +6,7 @@ from django.utils import timezone
 
 def main_page(request):
     works = Work.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:5]
-    categories = Category.objects.all()
+    categories = Category.objects.all()[:5]
     styles = Style.objects.all()
 
     return render(request, 'store/main_page.html', {
@@ -21,13 +21,24 @@ def work_detail(request, pk):
         'work': work
     })
 
-def catalogOfWorksInCategory(request, pk):
+def catalog_of_works_in_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     works = Work.objects.filter(category=category)
+   
     return render(request, 'store/catalog.html', {
         'works': works,
         'category': category
     })
+
+def catalog_of_works_in_style(request, pk):
+    style = get_object_or_404(Style, pk=pk)
+    works = Work.objects.filter(style=style)
+   
+    return render(request, 'store/styles.html', {
+        'works': works,
+        'style': style
+    })
+
 
 def categories_list(request):
     categories = Category.objects.all()
