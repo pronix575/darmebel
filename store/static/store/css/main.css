@@ -149,7 +149,7 @@ body {
 }
 
 .contentBlockText p, #contentBlockCategories p {
-	font-family: 'Roboto';
+	/*font-family: 'Roboto';*/
 } 
 
 .bottomInfo {

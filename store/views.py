@@ -1,15 +1,18 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
-from .models import Work, Category, PreviewWork
+from .models import Work, Category, Style
 from django.db.models import Q
+from django.utils import timezone
 
-def main_list(request):
-    works = PreviewWork.objects.all()
+def main_page(request):
+    works = Work.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:5]
     categories = Category.objects.all()
+    styles = Style.objects.all()
 
-    return render(request, 'store/main_list.html', {
+    return render(request, 'store/main_page.html', {
         'works': works,
-        'categories': categories
+        'categories': categories,
+        'styles': styles
     })
 
 def work_detail(request, pk):
@@ -26,10 +29,12 @@ def catalogOfWorksInCategory(request, pk):
         'category': category
     })
 
-class CategoryList(ListView):
-    queryset = Category.objects.all()
-    context_object_name = 'category_list'
-    template_name = 'store/category_list.html'
+def categories_list(request):
+    categories = Category.objects.all()
+    
+    return render(request, 'store/category_list.html', {
+        'categories': categories
+    })
 
 def search(request):
     return render(request, 'store/search.html', {})
@@ -37,8 +42,16 @@ def search(request):
 def search_list(request):
     query = request.GET.get('q')
 
-    works = Work.objects.filter(Q(name=query))
-    categories = Category.objects.filter(Q(name=query))
+    filters = Q()
+
+    def reword(a):
+        return a[0].upper()+ a[1:len(a)]
+
+    for word in query.split(' '):
+        filters |= Q(name__icontains=reword(word))
+
+    works = Work.objects.filter(filters)
+    categories = Category.objects.filter(filters)
 
     return render(request, 'store/search_results.html', {
         'works': works,

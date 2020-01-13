@@ -2,13 +2,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from . import views
-from .views import CategoryList
 
 urlpatterns = [
-    path('', views.main_list, name='main_list'),
-    path('/work/<int:pk>/', views.work_detail, name="work_detail"),
+    path('', views.main_page, name='main_page'),
+    path('work/<int:pk>/', views.work_detail, name="work_detail"),
     path('catalog/<int:pk>/', views.catalogOfWorksInCategory, name="catalogOfWorksInCategory"),
-    path('categories', CategoryList.as_view()),
+    path('categories', views.categories_list, name="categories_list"),
     path('search', views.search, name="search"),
     path('search results', views.search_list, name="search results"),
     path('contacts', views.contacts, name="contacts"),

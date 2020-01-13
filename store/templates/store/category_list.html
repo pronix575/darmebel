@@ -10,7 +10,7 @@
 		
 		<div class="contentBlockWrap">
 			<div id="contentBlockCategories">
-				{% for category in category_list reversed %}
+				{% for category in categories reversed %}
 				<a href="{% url 'catalogOfWorksInCategory' pk=category.pk %}">
 					<div id="contentBlock" style="background-image: url({{ category.preview.url }});"> 
 						<div>
