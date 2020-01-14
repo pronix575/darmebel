@@ -10,7 +10,13 @@
 
 <div id="contentBlockTextMainPage">
 	<div class="contentBlockWrap" id="styleAndCategoryWrap">
-		<h2 id="flex" style="margin: 0 0 50px 0">{{ work.name }}</h2>
+		<div style="margin: 0 0 50px 0">
+			<h2 id="flex">{{ work.name }}</h2>
+			<div>	
+				<div style="margin-top: 10px; "><p class="price">цена: {{ work.price }}</p></div>
+			</div>
+		</div>
+
 		<div style="display: flex;" class="hrefInWorkDetail">
 			<a href="{% url 'catalog_of_works_in_category' pk=work.category.pk %}" style="color: black; font-weight: bold;">
 				<div style="background-image: url({{ work.category.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
@@ -30,8 +36,8 @@
 
 <div id="contentBlockTextMainPage">
 	<div class="contentBlockWrap" id="styleAndCategoryWrap">
-		<p>{{ work.description|safe }}</p>
-	</div>	
+		<p style="font-weight: bold;">{{ work.description|safe }}</p>
+	</div>		
 </div>		
 
 {% endblock %}

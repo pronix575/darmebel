@@ -18,20 +18,20 @@
 						</div>
 						<div style="width: 20px"></div>
 						<div>
-							<div style="background-image: url({{ work.style.preview.url }})" class="styleAndCategoryImage"></div>
+							<div style="background-image: url({{ work.style.preview.url }}); margin-top: " class="styleAndCategoryImage"></div>
 							<p style="margin-top: 5px;">{{ work.style.name }}</p>
 						</div>
 					</div>
 	    		</div>
+
 	    		<div class="contentBlockWrap" id="contentBlockWrapText">  
 					    <h4>{{ work.name }}</h4> 
-					    <p style="font-family: 'Roboto';">{{ work.price }} ₽</p>
+					    <p style="font-family: 'Roboto';" class="price">{{ work.price }}</p>
 		    	</div>	
 	    	</div>    
 		</a>	
 
 	{% endfor %}
-	
 	</div>		
 	
 	<a class="slider__control slider__control_left" href="#" role="button"></a>
