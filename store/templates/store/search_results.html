@@ -52,7 +52,7 @@
 	<div class="contentBlockWrap">
 		<div id="contentBlockCategories">
 			{% for category in categories %}
-			<a href="{% url 'catalogOfWorksInCategory' pk=category.pk %}">
+			<a href="{% url 'catalog_of_works_in_category' pk=category.pk %}">
 				<div id="contentBlock" style="background-image: url({{ category.preview.url }});"> 
 					<div>
 						<p>{{ category.name }}</p></p>
@@ -62,4 +62,18 @@
 			{% endfor %}
 		</div>
 	</div>		
+
+	<div class="contentBlockWrap">
+		<div id="contentBlockCategories">
+			{% for style in styles %}
+			<a href="{% url 'catalog_of_works_in_style' pk=style.pk %}">
+				<div id="contentBlock" style="background-image: url({{ style.preview.url }});"> 
+					<div>
+						<p>{{ style.name }}</p></p>
+					</div>
+				</div>
+			</a>	
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}				

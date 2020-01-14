@@ -63,10 +63,12 @@ def search_list(request):
 
     works = Work.objects.filter(filters)
     categories = Category.objects.filter(filters)
+    styles = Style.objects.filter(filters)
 
     return render(request, 'store/search_results.html', {
         'works': works,
-        'categories': categories
+        'categories': categories,
+        'styles': styles
     })
 
 def contacts(request):

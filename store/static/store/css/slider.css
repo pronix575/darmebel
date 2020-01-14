@@ -19,7 +19,7 @@
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;

@@ -21,6 +21,7 @@ body {
 	z-index: 0;
 	display: flex;
 	justify-content: center;
+	background: #f8f8f8;
 }
 
 #flex {
@@ -88,6 +89,10 @@ body {
 	color: #0006ad;
 }
 
+.hrefInWorkDetail {
+	color: black;
+}
+
 #contentBlockTextMainPage {
 	padding: 0 20px 0 20px;
 	display: -webkit-flex; 
@@ -101,7 +106,7 @@ body {
 	background: rgba(0,0,0,.2);
     backdrop-filter: blur(3px);
 	border-radius: 15px 15px 0 0;
-	padding: 20px 40px 20px 40px; 
+	padding: 20px 20px 20px 20px; 
 	justify-content: space-between;
 	display: flex;
 	width: 760px;
@@ -128,7 +133,7 @@ body {
     background-position: center; 
 	justify-content: space-between;
 	display: flex;
-	width: 760px;
+	width: 800px;
 }
 
 @media(max-width: 800px) {
@@ -244,7 +249,7 @@ body {
 }
 
 .styleAndCategoryImage {
-	width: 80px; height: 80px; border-radius: 15px; border: 4px solid white; box-shadow: 0 15px 40px rgb(0,0,0,.5); margin-top: 20px; background-size: 150px; 
+	width: 80px; height: 80px; border-radius: 10px; border: 4px solid white; box-shadow: 0 15px 40px rgb(0,0,0,.5); margin-top: 20px; background-size: 150px; 
 	background-clip: border-box;
 	background-size: cover;
     background-repeat: no-repeat;
