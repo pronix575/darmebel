@@ -1,11 +1,10 @@
 $(document).ready(function(){
-	var $pront = $(".price")
-	
-	var 	price       = $pront.html(),
-            price_sep   = price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");	   
 
-            $pr.empty()
+	$(".price").each(function(i,elem) {
+		var price = $(elem).html()	   
 
-            $pr.html(price_sep + " ₽")
+	    $(elem).empty()
 
+	    $(elem).html(price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 "))
+	});
 });

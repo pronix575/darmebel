@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>ДарМебель</title>
+	<link rel="shortcut icon" href="media/images/favicon.png" type="image/x-icon">
 
 	<!-- meta -->
 	<meta charset="UTF-8">
@@ -59,9 +60,9 @@
 		</a>
 		
 		<li class="menu-main"><a href="/" style="">Главная</a></li>
-		<li class="menu-catalog"><a href="catalog/">Каталог</a></li>
-		<li class="menu-contacts"><a href="contacts/">Контакты</a></li>
-		<li class="menu-about_us"><a href="about us/">О нас</a></li>
+		<li class="menu-catalog"><a href="/catalog">Каталог</a></li>
+		<li class="menu-contacts"><a href="/contacts">Контакты</a></li>
+		<li class="menu-about_us"><a href="/about us">О нас</a></li>
 		
 
 		<a href="/search" class="search" style="background: none; box-shadow: none; border: none; font-size: 18px">
@@ -87,10 +88,10 @@
 			<div>
 				<span style="font-weight: bold; font-family: 'Google Sans">Дар</span>Мебель <span style="color: #adadad"><span style="font-family: 'Roboto';">© {% now "Y" %}</span> все права защищены</span>
 				<ul class="footerMenu">
-					<li><a href="">Главная</a></li>
-					<li><a href="">Каталог</a></li>
-					<li><a href="">Контакты</a></li>
-					<li><a href="">О нас</a></li>
+					<li><a href="/">Главная</a></li>
+					<li><a href="/catalog">Каталог</a></li>
+					<li><a href="/contacts">Контакты</a></li>
+					<li><a href="/about us">О нас</a></li>
 				</ul>
 			</div>
 			<div class="rightFooter">
@@ -101,8 +102,8 @@
 		</div>
 	</div>	
 
-	<script src="{% static 'store/js/search.js' %}" type="text/javascript"></script>
 	<script src="{% static 'store/js/slider.js' %}"></script>
+	<script src="{% static 'store/js/search.js' %}"></script>
 
 </div>
 

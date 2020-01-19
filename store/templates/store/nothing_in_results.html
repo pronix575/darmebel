@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+		.search { border-bottom: 3px solid #0006ad; }
+	</style>
+
+	<div class="contentBlockWrap" style="margin-top: 20px;">
+	<div id="contentBlockCategories">
+				<h3 style="color: black">Поиcк по сайту:</h3>
+
+				<form class="searchField" action="{% url 'search results' %}" method="get">
+					<input placeholder="поиск..." name="q" type="text" class="searchFieldInput">
+					
+					<div style="margin-left: 20px;">
+						<button class="submitButton" type="submit">найти<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
+						</button>
+					</div>
+				</form>
+				<div style="display: flex; justify-content: center; padding: 50px 0 0 0">
+					<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
+				
+				<img src="/media/images/nothing_is_m.png" style="width: 150px; height: auto;">
+
+				</div>
+				<h2 style="color: #686868; display: flex; justify-content: center; align-items: center; margin: 10px 0 0 0;">{{ query }} ничего не найдено!</h2>
+			</div>
+		</div>	
+{% endblock %}

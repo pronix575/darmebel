@@ -53,23 +53,37 @@ def search(request):
 def search_list(request):
     query = request.GET.get('q')
 
-    filters = Q()
+    if query == "":
+        return render(request, 'store/nothing_in_results.html', {})
+    else:    
 
-    def reword(a):
-        return a[0].upper()+ a[1:len(a)]
+        filters = Q()
 
-    for word in query.split(' '):
-        filters |= Q(name__icontains=reword(word))
+        def reword(a):
+            
+            return a[0].upper()+ a[1:len(a)]
 
-    works = Work.objects.filter(filters)
-    categories = Category.objects.filter(filters)
-    styles = Style.objects.filter(filters)
+        for word in query.split(' '):
+            filters |= Q(name__icontains=reword(word))
 
-    return render(request, 'store/search_results.html', {
-        'works': works,
-        'categories': categories,
-        'styles': styles
-    })
+            works = Work.objects.filter(filters)
+            categories = Category.objects.filter(filters)
+            styles = Style.objects.filter(filters)
+
+
+        if works or categories or styles:
+            return render(request, 'store/search_results.html', {
+                'works': works,
+                'categories': categories,
+                'styles': styles
+            })
+        else:    
+            if len(query) > 20:
+                query = query[0:20] + '...'
+
+            query = 'по запросу "' + query + '"'    
+
+            return render(request, 'store/nothing_in_results.html', {'query': query})
 
 def contacts(request):
     return render(request, 'store/contacts.html', {})
