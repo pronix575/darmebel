@@ -1,47 +1,50 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-					
-<style type="text/css">.menu-catalog { border-bottom: 3px solid #0006ad; } .footer { margin-top: 20px }</style>
+<div id="flex">
+	<div class="mainWrap">
+		<div style="width: 100%;">
+		<style type="text/css">.menu-catalog { border-bottom: 3px solid #0006ad; } .footer { margin-top: 20px }</style>
 
-<div id="flex" class="imgWrap">
-	<img class="detailImg" src="{{ work.preview.url }}">
-</div>
+		<div id="flex" class="imgWrap">
+			<img class="detailImg" src="{{ work.preview.url }}">
+		</div>
 
-<div id="contentBlockTextMainPage">
-	<div class="contentBlockWrap" id="styleAndCategoryWrap">
-		<div style="margin: 0 0 15px 0">
-			<h2 id="flex">{{ work.name }}</h2>
-			<div>	
-				<div style="margin-top: 10px; display: inline-block;"><p class="price">{{ work.price }} ₽</p></div>
+		<div id="contentBlockTextMainPage">
+			<div class="contentBlockWrap" id="styleAndCategoryWrap">
+				<div style="margin: 0 0 15px 0">
+					<h2>{{ work.name }}</h2>
+					<div>	
+						<div style="margin-top: 10px; display: inline-block;"><p class="price">{{ work.price }} ₽</p></div>
+					</div>
+				</div>
+				<div style="width: 20px"></div>
 			</div>
 		</div>
-		<div style="width: 20px"></div>
-	</div>
-</div>
 
 
-<div id="contentBlockTextMainPage">
-	<div class="contentBlockWrap" id="styleAndCategoryWrap">
-		<p style="font-weight: bold;">{{ work.description|safe }}</p>
-	</div>		
-</div>	
-<div id="contentBlockTextMainPage">
-	<div class="contentBlockWrap" id="styleAndCategoryWrap">	
-		<div style="display: flex; width: 100%" class="hrefInWorkDetail">
-			<a href="{% url 'catalog_of_works_in_category' pk=work.category.pk %}" class="hrefInWorkDetailA" style="font-weight: bold;">
-				<div style="background-image: url({{ work.category.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
-				<p style="display: flex;
-				justify-content: center;">{{ work.category.name }}</p>
-			</a>
-			<div style="width: 20px" class="Sdiv"></div>
-			<a href="{% url 'catalog_of_works_in_style' pk=work.style.pk %}" class="hrefInWorkDetailA">
-				<div style="background-image: url({{ work.style.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
-				<p style="display: flex;
-				justify-content: center; font-weight: bold;">{{ work.style.name }}</p>
-			</a>
+		<div id="contentBlockTextMainPage">
+			<div class="contentBlockWrap" id="styleAndCategoryWrap">
+				<p style="font-weight: bold;">{{ work.description|safe }}</p>
+			</div>		
 		</div>	
+		<div id="contentBlockTextMainPage">
+			<div class="contentBlockWrap" id="styleAndCategoryWrap">	
+				<div style="display: flex; width: 100%" class="hrefInWorkDetail">
+					<a href="{% url 'catalog_of_works_in_category' pk=work.category.pk %}" class="hrefInWorkDetailA" style="font-weight: bold;">
+						<div style="background-image: url({{ work.category.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
+						<p style="display: flex;
+						justify-content: center;">{{ work.category.name }}</p>
+					</a>
+					<a href="{% url 'catalog_of_works_in_style' pk=work.style.pk %}" class="hrefInWorkDetailA">
+						<div style="background-image: url({{ work.style.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
+						<p style="display: flex;
+						justify-content: center; font-weight: bold;">{{ work.style.name }}</p>
+					</a>
+				</div>	
+			</div>
+		</div>
+	</div>
 	</div>
 </div>
-
 {% endblock %}

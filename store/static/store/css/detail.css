@@ -19,11 +19,7 @@
 
 @media(max-width: 1080px) {
 
+}
 	.detailImg {
 		width: 100%;
 	}
-		
-	.imgWrap {
-		padding: 0 20px 0 20px;
-	}
-}

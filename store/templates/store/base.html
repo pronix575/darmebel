@@ -3,7 +3,8 @@
 <html>
 <head>
 	<title>ДарМебель</title>
-	<link rel="shortcut icon" href="media/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/media/images/favicon.ico">
+	<link rel="apple-touch-icon" href="/media/images/favicon.png">
 
 	<!-- meta -->
 	<meta charset="UTF-8">
@@ -147,7 +148,8 @@
 		<div class="mainWrap">
 			<div>
 				<div class="darmebelC">
-					<span style="font-weight: bold; font-family: 'Google Sans">Дар</span>Мебель <span style="color: #adadad"><span style="font-family: 'Roboto';">© {% now "Y" %}</span> все права защищены</span>
+					<span style="font-weight: bold;">Дар</span>Мебель <span style="color: #adadad"><span style="font-family: 'Roboto';">© {% now "Y" %}</span> <span class="allRights">все права защищены</span>
+					<br>
 					<ul class="footerMenu">
 						<li><a href="/">Главная</a></li>
 						<li><a href="/catalog">Каталог</a></li>
@@ -157,12 +159,26 @@
 				</div>
 			</div>
 			<div class="rightFooter">
-				<p><span style="color: #adadad">Разработано в</span></p><br>
-				 <p><a href="https://vk.com/stormincorporated" target="blank" style="color: white">Студии Искандера Каримова</a></p>
+				 <div><a href="https://vk.com/stormincorporated" target="blank" style="color: white"><img class="myLogo" src="/media/images/isk.png"></a></div>
 				 
 			</div>
 		</div>
 	</div>	
+
+	<style type="text/css">
+		.myLogo {
+			width: 80px; cursor: pointer;
+		}
+		@media(max-width: 650px) {
+			.allRights {
+				display: none;
+			}
+
+			.myLogo {
+				width: 35px;
+			}
+		}	
+	</style>
 
 	
 </div>

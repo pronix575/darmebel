@@ -3,7 +3,7 @@
 {% block content %}
 
 	<div class="contentBlockWrap" style="margin-top: 20px;">
-	<div id="contentBlockCategories">
+		<div id="contentBlockCategories">
 				<h3 style="color: black">Поиcк по сайту:</h3>
 
 				<form class="searchField" action="{% url 'search results' %}" method="get">
@@ -23,4 +23,6 @@
 				<h2 style="color: #686868; display: flex; justify-content: center; align-items: center;" class="nothingInResultsH">{{ query }} ничего не найдено!</h2>
 			</div>
 		</div>	
+
+	<div class="noname" style="color: rgb(0,0,0,.0);">hello</div>
 {% endblock %}

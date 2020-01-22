@@ -53,13 +53,13 @@ def search(request):
 def search_list(request):
     query = request.GET.get('q')
 
-    if query == "":
+    if query == "" or query[0] == " " or query[len(query) - 1] == " ":
         return render(request, 'store/nothing_in_results.html', {})
     else:    
-        if query[0] == " " and len(query) > 1:
-            query = query[1:len(query)] 
-        if query[len(query) - 1] == " " and len(query) > 1:
-            query = query[0:len(query) - 1]     
+        # if query[0] == "+" and len(query) > 1:
+        #     query = query[1:len(query)] 
+        # if query[len(query) - 1] == "+" and len(query) > 1:
+        #     query = query[0:len(query) - 1]     
 
         filters = Q()
 
