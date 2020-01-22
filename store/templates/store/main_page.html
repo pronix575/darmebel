@@ -11,12 +11,11 @@
 		<a href="{% url 'work_detail' pk=work.pk %}" class="slider__item">
 	    	<div class="contentBlock" id="contentBlockTextMainPage" style="background-image: url({{ work.preview.url }}); ">
 	    		<div class="contentBlockWrap" id="styleAndCategoryWrap">
-	    			<div></div>
+	    			<div style="color: rgb(0,0,0,.0);">text</div>
 					<div style="display: flex;">
 						<div>
 							<div style="background-image: url({{ work.category.preview.url }})" class="styleAndCategoryImage"></div>
 						</div>
-						<div style="width: 20px"></div>
 						<div>
 							<div style="background-image: url({{ work.style.preview.url }}); margin-top: " class="styleAndCategoryImage"></div>
 						</div>

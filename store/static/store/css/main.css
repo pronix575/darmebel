@@ -218,6 +218,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
+    margin-right: 20px; 
 }
 
 .bottomInfo {
@@ -320,6 +321,19 @@ body {
 	width: 170px;
 }
 
+.nativeSearch {
+	transition: .8s;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+	position: fixed;
+	width: 100%;
+	background: rgb(0,0,0,.5);
+	font-weight: bold;
+	height: 100vh;
+	backdrop-filter: blur(3px);
+	z-index: 9;
+}
 
 @media(max-width: 800px) {
 
@@ -341,6 +355,10 @@ body {
 		padding: 200px 20px 20px 20px;
 		height: 240px;
 	}
+	
+	.styleAndCategoryImage, .styleAndCategoryImage, .pOfStyleAnd {
+		display: none;
+	}
 }	
 
 .hrefInWorkDetailA p {
@@ -349,9 +367,6 @@ body {
 }
 
 @media(max-width: 350px) {
-	.styleAndCategoryImage, .styleAndCategoryImage, .pOfStyleAnd {
-		display: none;
-	}
 
 	.styleBlock {
 		height: 140px;
@@ -379,9 +394,8 @@ body {
 
 }	
 
-@media(max-width: 650px) {
 	.nativeMenu {
-		transition: .2s;
+		transition: .4s;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -394,6 +408,7 @@ body {
 		height: 100vh;
 		backdrop-filter: blur(3px);
 	}
+@media(max-width: 650px) {
 
 	#menu2 {
 		color: white;

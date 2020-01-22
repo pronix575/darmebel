@@ -56,6 +56,10 @@ def search_list(request):
     if query == "":
         return render(request, 'store/nothing_in_results.html', {})
     else:    
+        if query[0] == " " and len(query) > 1:
+            query = query[1:len(query)] 
+        if query[len(query) - 1] == " " and len(query) > 1:
+            query = query[0:len(query) - 1]     
 
         filters = Q()
 
