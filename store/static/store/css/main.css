@@ -344,6 +344,17 @@ body {
 	justify-content: center;
 }
 
+.request1 {
+	margin-top: 20px;
+	padding: 0 20px 20px 20px;
+	border-radius: 10px;
+	border: 3px solid #353535;
+}
+
+.request1 p, .request1 form input {
+	margin-top: 20px; 
+}
+
 @media(max-width: 800px) {
 	#contentBlockTextMainPage {
 		padding: 0;
@@ -448,7 +459,7 @@ body {
 	}	
 
 	.styleContainer {
-		width:  48%;
+		width:  47.8%;
 	}
 
 	#menu2, .search {

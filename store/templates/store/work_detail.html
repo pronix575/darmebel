@@ -44,7 +44,32 @@
 				</div>	
 			</div>
 		</div>
+		
+		<div class="request1">
+			<h3 style="display: flex; justify-content: space-between;"><span>Оставьте заявку</span><i class="fa fa-send da-lg"></i></h3>
+			
+			<form action="{% url 'search results' %}" method="get">
+					<div>
+						<!-- <p>Имя:</p> -->
+
+						<input placeholder="Имя" name="q1" class="searchFieldInput">
+					</div>
+					<div>
+						<!-- <p>телефон:</p> -->
+
+						<input placeholder="телефон" name="q1" class="searchFieldInput">
+					</div>
+					<div>
+						<!-- <p>email:</p> -->
+
+						<input placeholder="email" name="q1" class="searchFieldInput">
+					</div>
+					<div style="margin: 20px 0 0 0; display: flex; justify-content: space-between;"><div></div><button class="submitButton" type="submit">отправить<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
+						</button></div>
+				</form>
+			</div>
+		</div>
 	</div>
-	</div>
+
 </div>
 {% endblock %}
