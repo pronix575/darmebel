@@ -1,6 +1,6 @@
 from django.views.generic import ListView
-from django.shortcuts import render, get_object_or_404
-from .models import Work, Category, Style
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Work, Category, Style, Request
 from django.db.models import Q
 from django.utils import timezone
 
@@ -89,8 +89,33 @@ def search_list(request):
 
             return render(request, 'store/nothing_in_results.html', {'query': query})
 
+def request(request):
+    name = request.GET.get('q_name')
+    phone_number = request.GET.get('q_phone')
+    email = request.GET.get('q_email')
+
+    Request.objects.create(name=name, phone=phone_number, email=email)
+
+    requests = Request.objects.all()
+
+    return redirect('/request done')
+
+def request_done(request):
+    return render(request, 'store/request_done.html')
+
+
 def contacts(request):
     return render(request, 'store/contacts.html', {})
 
 def about_us(request):
     return render(request, 'store/about_us.html', {})
+
+def request_list(request):
+    requests = Request.objects.all()
+
+    return render(request, 'store/request_list.html', {
+        "requests": requests
+    })
+
+def e404(request, exeption):
+    return render(request, 'store/err404.html', {})

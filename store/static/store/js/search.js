@@ -13,14 +13,35 @@ $(document).ready(function(){
 			var nameOfFurniturePreview = $(elem).html()
 			var wid = screen.width, tSize = 0
 
-	    	tSize = 30
-
-	    	if (wid < 720) {
-	    		tSize = 20
-	    	}
+	    	tSize = 15
     		
     		if (wid < 500) {
     			tSize = 13
+    		}
+	    	if (wid < 300) {
+	    		tSize = 10
+	    	}
+			
+			if (nameOfFurniturePreview.length > tSize) {
+				$(elem).empty()
+				$(elem).html(nameOfFurniturePreview.substr(0, tSize) + "...")
+			}
+		});
+	}
+
+	function resizeOfFontR() {
+		$(".emailRequestJs").each(function(i,elem) {
+			var nameOfFurniturePreview = $(elem).html()
+			var wid = screen.width, tSize = 0
+
+	    	tSize = 30
+
+	    	if (wid < 720) {
+	    		tSize = 30
+	    	}
+    		
+    		if (wid < 500) {
+    			tSize = 15
     		}
 	    	if (wid < 500) {
 	    		tSize = 11
@@ -34,6 +55,7 @@ $(document).ready(function(){
 	}
 
 	resizeOfFont()
+	resizeOfFontR()
 
 	function sleep(milliseconds) {
 	  var start = new Date().getTime();
@@ -58,9 +80,13 @@ $(document).ready(function(){
 			}
 
 		  	$(".nativeMenu").show()
+		  	$(".nativeMenuWrap").css("padding-top", 50)
+		  	$(".nativeMenuWrap").css("opacity", 0.2)
+		  	$(".nativeMenuWrap").animate({"padding-top": "0px", "opacity": "1"}, 200);
 			$('#navicon').toggleClass('fa fa-navicon fa-lg').toggleClass('fa fa-close fa-lg');
 		  	trigger = false
 		} else {
+		  	$(".nativeMenuWrap").animate({"padding-top": "0px", "opacity": "0.2"}, 200);
 			$(".nativeMenu").toggle()
 		  	$('#navicon').toggleClass('fa fa-close fa-lg').toggleClass('fa fa-navicon fa-lg');
 			trigger = true
@@ -74,6 +100,7 @@ $(document).ready(function(){
 		if (tr) {
 
 			if (!trigger) {
+				$(".nativeMenuWrap").animate({"padding-top": "100px", "opacity": "0.2"}, 200);
 				$(".nativeMenu").toggle()
 				$('#navicon').toggleClass('fa fa-close fa-lg').toggleClass('fa fa-navicon fa-lg');
 				trigger = true
@@ -86,7 +113,7 @@ $(document).ready(function(){
 		  	$(".nativeSearch").css("opacity", 0.2)
 		  	
 		  	$(".nativeSearch").show()
-		  	$(".nativeSearch").animate({"padding-top": "30px", "opacity": "1"}, 0.1);
+		  	$(".nativeSearch").animate({"padding-top": "30px", "opacity": "1"}, 0.001);
 
 		  	tr = false
 		
@@ -117,6 +144,7 @@ $(document).ready(function(){
 		}
 
 		resizeOfFont()
+		resizeOfFontR()
 
 	});
 

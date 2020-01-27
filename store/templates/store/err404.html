@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+
+{% block content %}	
+{% load static from staticfiles %}
+	<style type="text/css">
+		.h621 {
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 80vh;
+		}
+	</style>
+	<div class="h621">
+		<div>
+			<span style="font-size: 55px; color: #606060; display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex; justify-content: center; font-weight: bold;">404</span>
+			<h2>Страница не найдена</h2>
+			<a href="/" id="flex" style="margin: 20px 0 9 0; color: #767676; text-decoration: underline;">на главную</a>
+		</div>
+	</div>
+
+{% endblock %}	

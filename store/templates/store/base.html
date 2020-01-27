@@ -24,6 +24,7 @@
 
 	<!-- script links -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="{% static 'store/js/jquery.maskedinput.js' %}" type="text/javascript"></script>
 </head>
 <body>
 
@@ -59,10 +60,10 @@
 
 		</a>
 		
-		<a href="/" id="menu2" class="menu-main">Главная</a>
-		<a href="/catalog" id="menu2" class="menu-catalog">Каталог</a>
-		<a href="/contacts" id="menu2" class="menu-contacts">Контакты</a>
-		<a href="/about us" id="menu2" class="menu-about_us">О нас</a>
+		<a href="/" class="menu-main">Главная</a>
+		<a href="/catalog" class="menu-catalog">Каталог</a>
+		<a href="/contacts" class="menu-contacts">Контакты</a>
+		<a href="/about us" class="menu-about_us">О нас</a>
 		
 		<div class="search"><i id="searchBtn" style="color: black" class="fa fa-search fa-lg"></i></div>
 		<!-- <a href="/search" class="search" style="background: none; box-shadow: none; border: none; font-size: 18px">
@@ -87,6 +88,7 @@
 			</form>
 		</div>
 	</div>	
+		<div class="search" style="color: #dcdcdc; height: 110vh; font-size: 15px"></div>
 </div>
 
 <div class="menuBtn" id="flex">
@@ -125,13 +127,20 @@
 </div>		
 
 <div class="nativeMenu">
-	<div>
-	<a href="/" id="menu2">Главная</a>
-	<a href="/catalog" id="menu2">Каталог</a>
-	<a href="/contacts" id="menu2">Контакты</a>
-	<a href="/about us" id="menu2">О нас</a>
-	<div id="menu2" class="menuBtn1"><i id="navicon" class="fa fa-close fa-lg"></i></div>
-</div>
+	<div style="padding: 20px; margin: 40px 20px; border-radius: 15px width: 100%" class="nativeMenuWrap">
+		<a href="/" id="menu2" style="width: 100%"><div>Главная</div></a>
+		<a href="/catalog" id="menu2"><div>Каталог</div></a>
+		<a href="/contacts" id="menu2"><div>Контакты</div></a>
+		<a href="/about us" id="menu2"><div>О нас</div></a>
+		{% if user.is_authenticated %}
+		<a href="/request list" id="menu2"><div><i class="fa fa-file-text" style="margin: 2px 15px 0 0"></i>заявки</div></a>
+		{% endif %}
+		<div id="menu2" class="menuBtn1">
+			<div>
+				<i id="navicon" class="fa fa-close fa-lg"></i>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="wrap">
@@ -180,11 +189,52 @@
 		}	
 	</style>
 
+	<script type="text/javascript">
+		function browser()
+		{
+			var ua = navigator.userAgent;
+			
+		    if (ua.search(/MSIE/) > 0) return 'Internet Explorer';
+		    if (ua.search(/Firefox/) > 0) return 'Firefox';
+		    if (ua.search(/Opera/) > 0) return 'Opera';
+		    if (ua.search(/Chrome/) > 0) return 'Google Chrome';
+		    if (ua.search(/Safari/) > 0) return 'Safari';
+		    if (ua.search(/Konqueror/) > 0) return 'Konqueror';
+		    if (ua.search(/Iceweasel/) > 0) return 'Debian Iceweasel';
+		    if (ua.search(/SeaMonkey/) > 0) return 'SeaMonkey';
+			
+		    // Браузеров очень много, все вписывать смысле нет, Gecko почти везде встречается
+		    if (ua.search(/Gecko/) > 0) return 'Gecko';
+
+		    // а может это вообще поисковый робот
+		    return 'Search Bot';
+		}
+
+		// if (browser() != 'Safari') {
+		// 	$(".safDelete").css("display", 'none')
+		// }
+	</script>
 	
 </div>
 	<script src="{% static 'store/js/search.js' %}"></script>
 	<script src="{% static 'store/js/slider.js' %}"></script>
 	
+	<script>
+	function func_(oTextArea,nPos)
+	{
+		input_.focus();
+		var rng=input_.createTextRange();
+		rng.collapse()
+		rng.moveStart("character",nPos);
+		rng.select();
+	}
+
+	$(function(){
+	  //2. Получить элемент, к которому необходимо добавить маску
+	  $("#phone").mask("9(999) 999-9999");
+	});
+	</script>	
+
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
 	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -200,5 +250,6 @@
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/57133090" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
+	<script type="text/javascript"></script>
 </body>
 </html>

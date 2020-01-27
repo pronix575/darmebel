@@ -57,14 +57,6 @@ body {
 	color: black;
 }
 
-#menu2 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 50px;
-	color: black;
-}
-
 #headerWrap li a {
 	text-decoration: none;
 	color: black;
@@ -74,15 +66,27 @@ body {
 	color: #0006ad;
 }
 
-
+.menu-main, .menu-catalog, .menu-contacts, .menu-about_us {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;	
+	align-items: center;
+	color: black;
+	height: 50px;
+}
 
 .hrefInWorkDetail {
 	color: black;
 }
 
 #contentBlockTextMainPage {
+	display: -webkit-box; /* Safari */
 	padding: 0 20px 0 20px;
-	display: -webkit-flex; 
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -220,7 +224,6 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
-    margin-right: 20px; 
 }
 
 .bottomInfo {
@@ -355,6 +358,63 @@ body {
 	margin-top: 20px; 
 }
 
+.nativeMenu {
+	transition: .4s;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+	position: fixed;
+	width: 100%;
+	background: rgb(0,0,0,.5);
+	padding: 30px 0 0 0;
+	font-weight: bold;
+	height: 100vh;
+	backdrop-filter: blur(3px);
+}
+
+#menu2 div {
+	font-size: 20px;
+	width: 100%;
+	/*margin: 20px 0 0 0;*/
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;	
+	padding: 20px;
+	/*border: 3px solid white;
+	border-radius: 15px;*/
+	/*background: rgb(0,0,0,.8);*/
+}
+
+.requestWrap {
+	border-radius: 10px;
+}
+
+.requestItem {
+	border: 
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	border-top: 2px solid #353535;
+	align-items: center;
+	background: #e1e1e1; 
+}
+
+.requestItem div {
+	font-size: 12px;
+}
+
 @media(max-width: 800px) {
 	#contentBlockTextMainPage {
 		padding: 0;
@@ -400,7 +460,6 @@ body {
 	}
 }	
 
-
 @media(max-width: 350px) {
 
 	.styleBlock {
@@ -414,26 +473,10 @@ body {
 	}
 }	
 
-.nativeMenu {
-	transition: .4s;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 9;
-	position: fixed;
-	width: 100%;
-	background: rgb(0,0,0,.5);
-	padding: 50px 0 0 0;
-	font-weight: bold;
-	height: 100vh;
-	backdrop-filter: blur(3px);
-}
-
 @media(max-width: 650px) {
 
 	#menu2 {
 		color: white;
-
 	}
 	
 	.menu-main {

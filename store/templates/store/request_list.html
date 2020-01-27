@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+
+{% block content %}	
+{% load static from staticfiles %}
+	<div id="flex" style="margin: 40px 0 0 0">
+	<div class="mainWrap">
+			<div style="width: 100%" class="requestWrap">
+			<div class="requestItem">
+				<p>Имя</p>
+				<p>Телефон</p>
+				<p>email</p>
+			</div>
+			{% for request in requests %}	
+				<div class="requestItem">
+					<div style="width: 100px"><h4>{{ request.name }}</h4></div>
+					<div><p>{{ request.phone }}</p></div>
+					<div class="emailRequestJs" style="text-align: right; width: 100px"><p>{{ request.email }}</p></div>
+				</div>
+			{% endfor %}
+		</div>
+		</div>
+	</div>	
+
+	<style type="text/css">
+		.footer {
+			margin: 20px 0 0 0;
+		}
+	</style>
+{% endblock %}	

@@ -36,6 +36,8 @@ class Work(models.Model):
         return self.name
 
 class Request(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=500)
+    phone = models.CharField(max_length=500)
     email = models.EmailField(max_length=100)
+    created_date = models.DateTimeField(default=timezone.now)
     
