@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+
+{% block content %}	
+{% load static from staticfiles %}
+<style type="text/css">.menu-request { border-bottom: 3px solid #0006ad; }</style>
+	<div id="flex" style="margin: 20px 0 0 0">
+		<div class="mainWrap">
+			<div style="width: 100%;">
+
+			<div class="request1" style="border-radius: 10px">
+				<h3 style="display: flex; justify-content: space-between;"><span class="emailRequestJs">{{ request.name }}</span><i class="fa fa-send da-lg"></i></h3>
+
+				<p>тел. <span style="font-weight: bold;">{{ request.phone }}</span></p>
+				<p>email: <span style="font-weight: bold;" class="emailRequestJs">{{ request.email }}</span></p>
+				<p><span style="font-weight: bold;">{{ request.created_date }}</span></p>
+			</div>
+
+			<div id="flex" style="margin: 20px 0 0 0">
+				<a href="/request list" style="color: white; font-weight: white; padding: 10px 15px; border-radius: 10px; background: #0006ad; box-shadow: 0 2px 5px rgb(0,0,0,.3)"><i class="fa fa-angle-double-left" style="margin: 0 10px 0 0 "></i>Вернуться</a>
+			</div>
+		</div>	
+		</div>
+	</div>	
+{% endblock %}

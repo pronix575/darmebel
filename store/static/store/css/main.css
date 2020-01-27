@@ -66,7 +66,7 @@ body {
 	color: #0006ad;
 }
 
-.menu-main, .menu-catalog, .menu-contacts, .menu-about_us {
+.menu-main, .menu-catalog, .menu-contacts, .menu-about_us, .menu-request {
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -371,7 +371,6 @@ body {
 	position: fixed;
 	width: 100%;
 	background: rgb(0,0,0,.5);
-	padding: 30px 0 0 0;
 	font-weight: bold;
 	height: 100vh;
 	backdrop-filter: blur(3px);
@@ -386,7 +385,7 @@ body {
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
-	justify-content: center;	
+	align-items: center;	
 	padding: 20px;
 	/*border: 3px solid white;
 	border-radius: 15px;*/
@@ -398,17 +397,25 @@ body {
 }
 
 .requestItem {
-	border: 
+	background: #9efb7f;
+	margin: 10px 0 0 0;
+	border-radius: 5px;
+	/*border: 2px solid black;*/
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
 	justify-content: space-between;
-	padding: 10px;
-	border-top: 2px solid #353535;
+	padding: 10px 15px;
+	/*border-top: 2px solid #353535;*/
 	align-items: center;
-	background: #e1e1e1; 
+	box-shadow: 0 1px 3px rgb(0,0,0,.05);
+	color: black;
+}
+
+.requestItem h3 {
+	margin: 0;
 }
 
 .requestItem div {

@@ -2,20 +2,26 @@
 
 {% block content %}	
 {% load static from staticfiles %}
-	<div id="flex" style="margin: 40px 0 0 0">
+	<style type="text/css">.menu-request { border-bottom: 3px solid #0006ad; }</style>
+	<div id="flex" style="margin: 30px 0 0 0">
 	<div class="mainWrap">
-			<div style="width: 100%" class="requestWrap">
-			<div class="requestItem">
-				<p>Имя</p>
-				<p>Телефон</p>
-				<p>email</p>
+			<div style="width: 100%;" class="requestWrap">
+			<div class="requestItem" style="background: none; box-shadow: none; padding: 0 0;">
+				<h3>Имя</h3>
+				<h3>дата / время</h3>
 			</div>
-			{% for request in requests %}	
-				<div class="requestItem">
-					<div style="width: 100px"><h4>{{ request.name }}</h4></div>
-					<div><p>{{ request.phone }}</p></div>
-					<div class="emailRequestJs" style="text-align: right; width: 100px"><p>{{ request.email }}</p></div>
-				</div>
+			{% for request in requests reversed %}	
+				{% if not request.is_viewed %}
+					<a href="{% url 'request_detail' pk=request.pk %}" class="requestItem">
+						<div style="width: 100px; font-weight: bold;"><p class="emailRequestJs">{{ request.name }}</p></div>
+						<div style="color: #4a4a4a"><p>{{ request.created_date }}</p></div>
+					</a>
+				{% else %}
+					<a href="{% url 'request_detail' pk=request.pk %}" class="requestItem" style="background: white">
+						<div style="width: 100px; font-weight: bold;"><p>{{ request.name }}</p></div>
+						<div style="color: #4a4a4a"><p>{{ request.created_date }}</p></div>
+					</a>
+				{% endif %}	
 			{% endfor %}
 		</div>
 		</div>

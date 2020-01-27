@@ -18,4 +18,5 @@ urlpatterns = [
     path('request/', views.request, name="request"),
     path('request done/', views.request_done, name="request_done"),
     path('request list/', views.request_list, name="request_list"),
+    path('request/<int:pk>/', views.request_detail, name="request_detail")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

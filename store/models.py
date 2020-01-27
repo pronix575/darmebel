@@ -40,4 +40,5 @@ class Request(models.Model):
     phone = models.CharField(max_length=500)
     email = models.EmailField(max_length=100)
     created_date = models.DateTimeField(default=timezone.now)
+    is_viewed = models.BooleanField(default="False")
     

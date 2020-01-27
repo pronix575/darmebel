@@ -94,11 +94,11 @@ def request(request):
     phone_number = request.GET.get('q_phone')
     email = request.GET.get('q_email')
 
-    Request.objects.create(name=name, phone=phone_number, email=email)
+    Request.objects.create(name=name[0:50], phone=phone_number, email=email)
 
     requests = Request.objects.all()
 
-    return redirect('/request done')
+    return redirect('/request done')  
 
 def request_done(request):
     return render(request, 'store/request_done.html')
@@ -111,11 +111,29 @@ def about_us(request):
     return render(request, 'store/about_us.html', {})
 
 def request_list(request):
-    requests = Request.objects.all()
+    if request.user.is_authenticated:        
+        requests = Request.objects.all()
 
-    return render(request, 'store/request_list.html', {
-        "requests": requests
-    })
+        return render(request, 'store/request_list.html', {
+            "requests": requests
+        })
+    else:
+        return render(request, 'store/err404.html', {})  
+
+def request_detail(request, pk):
+    if request.user.is_authenticated:    
+        request221 = get_object_or_404(Request, pk=pk)
+            
+        if not request221.is_viewed:    
+            request221.is_viewed = True
+            request221.save()
+
+        return render(request, 'store/request_detail.html', {
+            "request": request221
+        })
+
+    else:
+        return render(request, 'store/err404.html', {})  
 
 def e404(request, exeption):
     return render(request, 'store/err404.html', {})

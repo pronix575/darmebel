@@ -13,12 +13,12 @@ $(document).ready(function(){
 			var nameOfFurniturePreview = $(elem).html()
 			var wid = screen.width, tSize = 0
 
-	    	tSize = 15
+	    	tSize = 25
     		
     		if (wid < 500) {
-    			tSize = 13
+    			tSize = 15
     		}
-	    	if (wid < 300) {
+	    	if (wid < 350) {
 	    		tSize = 10
 	    	}
 			
@@ -34,17 +34,17 @@ $(document).ready(function(){
 			var nameOfFurniturePreview = $(elem).html()
 			var wid = screen.width, tSize = 0
 
-	    	tSize = 30
+	    	tSize = 50
 
 	    	if (wid < 720) {
 	    		tSize = 30
 	    	}
     		
     		if (wid < 500) {
-    			tSize = 15
+    			tSize = 30
     		}
-	    	if (wid < 500) {
-	    		tSize = 11
+	    	if (wid < 350) {
+	    		tSize = 17
 	    	}
 			
 			if (nameOfFurniturePreview.length > tSize) {
