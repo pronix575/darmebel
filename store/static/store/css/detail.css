@@ -14,7 +14,7 @@
 }
 
 .imgWrap {	
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 @media(max-width: 1080px) {
@@ -23,3 +23,4 @@
 	.detailImg {
 		width: 100%;
 	}
+}	

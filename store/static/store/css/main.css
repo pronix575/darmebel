@@ -21,7 +21,7 @@ body {
 }
 
 .mainWrap {
-	padding: 0 20px 0 20px;
+	padding: 0 20px;
 	width: 800px;
 	display: flex;
 	justify-content: space-between;
@@ -133,7 +133,7 @@ body {
 
 
 .content {
-	margin-top: 30px; 
+	margin-top: 50px; 
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -420,6 +420,53 @@ body {
 
 .requestItem div {
 	font-size: 12px;
+}
+
+.areYouShureToDelete {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+	position: fixed;
+	width: 100%;
+	background: rgb(0,0,0,.5);
+	font-weight: bold;
+	height: 100vh;
+	backdrop-filter: blur(3px);
+}
+
+.formAreYouShure {
+	border-radius: 15px; 
+	padding: 20px;
+	background: white;
+	box-shadow: 0 5px 10px rgb(0,0,0,.3);
+}
+
+.yesBtn, .noBtn {
+	font-size: 16px;
+	transition: .2s;
+	cursor: pointer;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 10px;
+	border: 2px solid black;
+	border-radius: 10px;
+	font-weight: bold;
+	color: black;
+}
+
+.yesBtn:hover, .noBtn:hover {
+	background: black;
+	color: white;
 }
 
 @media(max-width: 800px) {

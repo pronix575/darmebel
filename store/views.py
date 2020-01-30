@@ -55,11 +55,7 @@ def search_list(request):
 
     if query == "" or query[0] == " " or query[len(query) - 1] == " ":
         return render(request, 'store/nothing_in_results.html', {})
-    else:    
-        # if query[0] == "+" and len(query) > 1:
-        #     query = query[1:len(query)] 
-        # if query[len(query) - 1] == "+" and len(query) > 1:
-        #     query = query[0:len(query) - 1]     
+    else:      
 
         filters = Q()
 
@@ -90,15 +86,31 @@ def search_list(request):
             return render(request, 'store/nothing_in_results.html', {'query': query})
 
 def request(request):
-    name = request.GET.get('q_name')
-    phone_number = request.GET.get('q_phone')
-    email = request.GET.get('q_email')
+    if request.method == "POST":    
+        name = request.POST.get('q_name')
+        phone_number = request.POST.get('q_phone')
+        email = request.POST.get('q_email')
 
-    Request.objects.create(name=name[0:50], phone=phone_number, email=email)
+        Request.objects.create(name=name[0:50], phone=phone_number, email=email)
+
+        requests = Request.objects.all()
+
+        return redirect('/request done')
+    else:
+        return redirect('/e404')      
+
+def delete_request(request):
+    id_n = request.POST.get('id')
+
+    req = Request.objects.get(id=id_n)
+    req.delete()
 
     requests = Request.objects.all()
 
-    return redirect('/request done')  
+    return render(request, 'store/request_list.html', {
+        "requests": requests
+    })
+
 
 def request_done(request):
     return render(request, 'store/request_done.html')
@@ -135,5 +147,9 @@ def request_detail(request, pk):
     else:
         return render(request, 'store/err404.html', {})  
 
+def e404f(request):
+    return render(request, 'store/err404.html', {})
+
 def e404(request, exeption):
     return render(request, 'store/err404.html', {})
+

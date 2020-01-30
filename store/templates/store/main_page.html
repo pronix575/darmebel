@@ -80,8 +80,9 @@
 			<div class="request1" style="border-radius: 15px">
 				<h3 style="display: flex; justify-content: space-between;"><span>Оставьте заявку</span><i class="fa fa-send da-lg"></i></h3>
 				
-				<form action="{% url 'request' %}" method="get">
+				<form action="{% url 'request' %}" method="post" class="js-feedback_form">
 						<div>
+						{% csrf_token %}
 							<!-- <p>Имя:</p> -->
 
 							<input required placeholder="Имя" name="q_name" class="searchFieldInput">
@@ -104,7 +105,6 @@
 		</div>	
 	</div>
 </div>	
-
 
 <div style="margin-top: 20px">
 	<div style="width: 100%;position: relative;">

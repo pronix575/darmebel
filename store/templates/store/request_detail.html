@@ -3,7 +3,7 @@
 {% block content %}	
 {% load static from staticfiles %}
 <style type="text/css">.menu-request { border-bottom: 3px solid #0006ad; }</style>
-	<div id="flex" style="margin: 20px 0 0 0">
+	<div id="flex" style="margin: 0px 0 0 0">
 		<div class="mainWrap">
 			<div style="width: 100%;">
 
@@ -15,10 +15,63 @@
 				<p><span style="font-weight: bold;">{{ request.created_date }}</span></p>
 			</div>
 
-			<div id="flex" style="margin: 20px 0 0 0">
+			<div style="margin: 20px 0 0 0; display: flex; justify-content: space-between;align-items: center;">
+				<i style="color: rgb(0,0,0,.0); margin: 0 0 0 20px" class="fa fa-trash-o fa-lg"></i>
 				<a href="/request list" style="color: white; font-weight: white; padding: 10px 15px; border-radius: 10px; background: #0006ad; box-shadow: 0 2px 5px rgb(0,0,0,.3)"><i class="fa fa-angle-double-left" style="margin: 0 10px 0 0 "></i>Вернуться</a>
+				<i style="background:red; border-radius: 10px;color: white; padding: 10px" id="deleteRequestBtn" class="fa fa-trash-o fa-lg"></i>
 			</div>
 		</div>	
 		</div>
 	</div>	
+	
+	<div class="areYouShureToDelete">
+		<div class="formAreYouShure">
+			<p>удалить эту заявку?</p>
+			<form  method="post" style="display: flex;justify-content: space-around; margin: 20px 0 0 0">
+				{% csrf_token %}
+				<div class="yesBtn">Да</div>
+				<div class="noBtn">Нет</div>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	function reverseStr(str) {
+    	return str.split("").reverse().join("");
+	}
+
+
+	function id_numbers() {
+		var href = window.location.href
+		
+		href = href.substr(0,href.length - 1)
+
+		var answ = ''
+		
+		for (var i = href.length - 1; i > 0; i--) {
+			if (href[i] == "/") {
+				return reverseStr(answ)
+			} else {
+				answ += href[i]
+			}
+		}
+	}
+
+	$( ".yesBtn" ).click(function(){
+		console.log("fuck") 
+	    window.location.replace('/request list')
+
+		$.ajax({
+	        url: "{% url 'delete_request' %}",
+	        type: "POST",
+	        data: {
+	            'csrfmiddlewaretoken': '{{ csrf_token }}',
+	            'id': id_numbers()
+	        }
+
+	    });
+	    
+	})	
+</script>
+
 {% endblock %}
