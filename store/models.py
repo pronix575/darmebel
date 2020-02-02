@@ -28,6 +28,8 @@ class Work(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
     description = models.TextField(default="")
 
+    views = models.IntegerField(default=0)
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -39,6 +41,16 @@ class Request(models.Model):
     name = models.CharField(max_length=500)
     phone = models.CharField(max_length=500)
     email = models.EmailField(max_length=100)
+
     created_date = models.DateTimeField(default=timezone.now)
-    is_viewed = models.BooleanField(default="False")
     
+    is_viewed = models.BooleanField(default="False")
+    is_alive = models.BooleanField(default="True")
+
+class MainPagePreview(models.Model):
+    name = models.CharField(max_length=50)
+    preview = models.ImageField(upload_to='images/')
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.name

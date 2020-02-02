@@ -5,7 +5,7 @@
 
 .slider__wrapper {
   display: flex;
-  transition: transform 0.6s ease;
+  transition: transform 0.4s ease;
 }
 
 .slider__item {
@@ -44,11 +44,11 @@
 }
 
 .slider__control_left {
-  left: 0;
+  left: 0px;
 }
 
 .slider__control_right {
-  right: 0;
+  right: 0px;
 }
 
 .slider__control::before {
@@ -70,4 +70,26 @@
 
 .slider__item>div {
   text-align: center;
+}
+
+@media(max-width: 650px) { 
+  .slider__item>div {
+    border-radius: 15px;
+  }
+
+  .slider__item {
+    padding: 20px;
+  }
+  
+  .slider__control_left {
+    left: 20px;
+  }
+
+  .slider__control_right {
+    right: 20px;
+  }
+  
+  .slider__wrapper {
+    
+  }
 }

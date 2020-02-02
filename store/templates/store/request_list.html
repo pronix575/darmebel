@@ -3,12 +3,11 @@
 {% block content %}	
 {% load static from staticfiles %}
 	<style type="text/css">.menu-request { border-bottom: 3px solid #0006ad; }</style>
-	<div id="flex" style="margin: 0px 0 0 0">
+	<div id="flex" style="margin: 10px 0 0 0">
 	<div class="mainWrap">
 			<div style="width: 100%;" class="requestWrap">
 			<div class="requestItem" style="background: none; box-shadow: none; padding: 0 0;">
-				<h3>Имя</h3>
-				<h3>дата / время</h3>
+				<h3>Заявки:</h3>
 			</div>
 			{% for request in requests reversed %}	
 				{% if not request.is_viewed %}
@@ -18,7 +17,7 @@
 					</a>
 				{% else %}
 					<a href="{% url 'request_detail' pk=request.pk %}" class="requestItem" style="background: white">
-						<div style="width: 100px; font-weight: bold;"><p>{{ request.name }}</p></div>
+						<div style="width: 100px; font-weight: bold;" class="emailRequestJs"><p>{{ request.name }}</p></div>
 						<div style="color: #4a4a4a"><p>{{ request.created_date }}</p></div>
 					</a>
 				{% endif %}	

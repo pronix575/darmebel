@@ -12,27 +12,32 @@
 
 				<p>тел. <span style="font-weight: bold;">{{ request.phone }}</span></p>
 				<p>email: <span style="font-weight: bold;" class="emailRequestJs">{{ request.email }}</span></p>
-				<p><span style="font-weight: bold;">{{ request.created_date }}</span></p>
 			</div>
+			
+			<p style="display: flex;justify-content: space-between;align-items: center; margin: 20px 0 0 0">
+				<span>{{ request.created_date }}</span>
+				<i style="background:red; border-radius: 10px;color: white; padding: 8px 9px; box-shadow: 0 2px 5px rgb(0,0,0,.3)" id="deleteRequestBtn" class="fa fa-trash-o"></i>
+			</p>
 
-			<div style="margin: 20px 0 0 0; display: flex; justify-content: space-between;align-items: center;">
-				<i style="color: rgb(0,0,0,.0); margin: 0 0 0 20px" class="fa fa-trash-o fa-lg"></i>
-				<a href="/request list" style="color: white; font-weight: white; padding: 10px 15px; border-radius: 10px; background: #0006ad; box-shadow: 0 2px 5px rgb(0,0,0,.3)"><i class="fa fa-angle-double-left" style="margin: 0 10px 0 0 "></i>Вернуться</a>
-				<i style="background:red; border-radius: 10px;color: white; padding: 10px" id="deleteRequestBtn" class="fa fa-trash-o fa-lg"></i>
+
+			<div style="margin: 10px 0 0 0;">
+				<a href="/request list" style="text-decoration: underline; color: #686868">Вернуться к списку заявок</a>
 			</div>
 		</div>	
 		</div>
 	</div>	
 	
 	<div class="areYouShureToDelete">
-		<div class="formAreYouShure">
-			<p>удалить эту заявку?</p>
-			<form  method="post" style="display: flex;justify-content: space-around; margin: 20px 0 0 0">
-				{% csrf_token %}
-				<div class="yesBtn">Да</div>
-				<div class="noBtn">Нет</div>
-			</form>
-		</div>
+			<div class="mainWrap" id="flex">
+				<div class="formAreYouShure">
+					<div style="display: flex;justify-content: space-between; font-weight: lighter; color: #575757"><span>Удалить эту заявку?</span><i class="fa fa-trash-o"></i></div>
+					<form  method="post" style="display: flex;justify-content: space-around; margin: 0px 0 0 0">
+						<div class="yesBtn">Да</div>
+						<div style="width: 30px"></div>
+						<div class="noBtn">Нет</div>
+					</form>
+				</div>
+			</div>		
 	</div>
 
 <script type="text/javascript">

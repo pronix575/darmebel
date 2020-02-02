@@ -12,13 +12,17 @@
 
 		<div id="contentBlockTextMainPage">
 			<div class="contentBlockWrap" id="styleAndCategoryWrap">
-				<div style="margin: 0 0 15px 0">
+				<div style="margin: 0 0 15px 0; width: 100%" >
 					<h2>{{ work.name }}</h2>
-					<div>	
-						<div style="margin-top: 10px; display: inline-block;"><p class="price">{{ work.price }} ₽</p></div>
+					<div id="flex">	
+						<div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%"><p class="price">{{ work.price }} ₽</p>
+							{% if user.is_authenticated %}
+								<div style="color: #686868"><i class="fa fa-eye"></i> {{ work.views }}
+								</div>
+							{% endif %}	
+						</div>
 					</div>
 				</div>
-				<div style="width: 20px"></div>
 			</div>
 		</div>
 
@@ -38,7 +42,7 @@
 					</a>
 					<div style="width: 20px"></div>
 					<a href="{% url 'catalog_of_works_in_style' pk=work.style.pk %}" class="hrefInWorkDetailA">
-						<div style="background-image: url({{ work.style.preview.url }}); box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
+						<div style="background-image: url({{ work.style.preview.url }});  box-shadow: none; border: none;" class="styleAndCategoryImage"></div>
 						<p style="display: flex;
 						justify-content: center; font-weight: bold;">{{ work.style.name }}</p>
 					</a>

@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Work, Category, Style, Request
+from .models import Work, Category, Style, Request, MainPagePreview
 from django.db.models import Q
 from django.utils import timezone
 
@@ -8,15 +8,23 @@ def main_page(request):
     works = Work.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:5]
     categories = Category.objects.all()[:5]
     styles = Style.objects.all()
+    preview = MainPagePreview.objects.last()
 
     return render(request, 'store/main_page.html', {
         'works': works,
         'categories': categories,
-        'styles': styles
+        'styles': styles,
+        'preview': preview
     })
 
 def work_detail(request, pk):
     work = get_object_or_404(Work, pk=pk)
+
+    if not request.user.is_authenticated:
+        work.views += 1
+
+        work.save()
+
     return render(request, 'store/work_detail.html', {
         'work': work
     })
@@ -103,28 +111,19 @@ def delete_request(request):
     id_n = request.POST.get('id')
 
     req = Request.objects.get(id=id_n)
-    req.delete()
+    req.is_alive = False
+    req.save()
 
-    requests = Request.objects.all()
-
-    return render(request, 'store/request_list.html', {
-        "requests": requests
-    })
+    return redirect('/request list')
 
 
 def request_done(request):
     return render(request, 'store/request_done.html')
 
 
-def contacts(request):
-    return render(request, 'store/contacts.html', {})
-
-def about_us(request):
-    return render(request, 'store/about_us.html', {})
-
 def request_list(request):
     if request.user.is_authenticated:        
-        requests = Request.objects.all()
+        requests = Request.objects.filter(is_alive=True)
 
         return render(request, 'store/request_list.html', {
             "requests": requests
@@ -136,16 +135,25 @@ def request_detail(request, pk):
     if request.user.is_authenticated:    
         request221 = get_object_or_404(Request, pk=pk)
             
-        if not request221.is_viewed:    
-            request221.is_viewed = True
-            request221.save()
+        if request221.is_alive:    
+            if not request221.is_viewed:    
+                request221.is_viewed = True
+                request221.save()
 
-        return render(request, 'store/request_detail.html', {
-            "request": request221
-        })
+            return render(request, 'store/request_detail.html', {
+                "request": request221
+            })
+        else:
+            return redirect('/e404')    
 
     else:
         return render(request, 'store/err404.html', {})  
+
+def contacts(request):
+    return render(request, 'store/contacts.html', {})
+
+def about_us(request):
+    return render(request, 'store/about_us.html', {})
 
 def e404f(request):
     return render(request, 'store/err404.html', {})

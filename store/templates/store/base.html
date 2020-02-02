@@ -33,41 +33,42 @@
 	<div class="mainWrap" id="headerWrap">
 		<a href="/" class="logo">
 			<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
-			<svg version="1.1"
-				 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-				 x="0px" y="0px" width="41.1px" height="19px" viewBox="0 0 41.1 19" style="overflow:scroll;enable-background:new 0 0 41.1 19;"
-				 xml:space="preserve">
-			<style type="text/css">
-				.st0{fill:none;stroke:url(#SVGID_1_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st1{fill:none;stroke:url(#SVGID_2_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st2{fill:none;stroke:url(#SVGID_3_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st3{fill:none;stroke:url(#SVGID_4_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-			</style>
-			<defs>
-			</defs>
-			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-0.5881" y1="1.6574" x2="15.0814" y2="17.3269">
-				<stop  offset="0" style="stop-color:#E9CE00"/>
-				<stop  offset="1" style="stop-color:#FF3F3F"/>
-			</linearGradient>
-			<path class="st0" d="M9.5,17.2H1.8V1.8h7.7c4.2,0,7.7,3.4,7.7,7.7v0C17.2,13.7,13.7,17.2,9.5,17.2z"/>
-			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="22.6359" y1="0.5347" x2="40.5509" y2="18.4497">
-				<stop  offset="0" style="stop-color:#E90700"/>
-				<stop  offset="1" style="stop-color:#2E2AFF"/>
-			</linearGradient>
-			<polyline class="st1" points="39.3,17.2 39.3,1.8 31.6,11.3 23.9,1.8 23.9,17.2 "/>
-			</svg>
+		<svg version="1.1"
+			 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+			 x="0px" y="0px" width="41.1px" height="19px" viewBox="0 0 206.1 96.9"
+			 style="overflow:scroll;enable-background:new 0 0 206.1 96.9;" xml:space="preserve">
+		<style type="text/css">
+			.st0{fill:none;stroke:url(#SVGID_1_);stroke-width:19;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st1{fill:none;stroke:url(#SVGID_2_);stroke-width:19;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st2{fill:none;stroke:url(#SVGID_3_);stroke-width:19;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st3{fill:none;stroke:url(#SVGID_4_);stroke-width:19;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+		</style>
+		<defs>
+		</defs>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="48.4375" y1="0" x2="48.4375" y2="96.875">
+			<stop  offset="0" style="stop-color:#FFBA00"/>
+			<stop  offset="1" style="stop-color:#BF0075"/>
+		</linearGradient>
+		<path class="st0" d="M48.4,87.4H9.5V9.5h38.9c21.5,0,38.9,17.4,38.9,38.9v0C87.4,69.9,69.9,87.4,48.4,87.4z"/>
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="158.15" y1="0" x2="158.15" y2="96.875">
+			<stop  offset="0" style="stop-color:#FFBA00"/>
+			<stop  offset="1" style="stop-color:#BF0075"/>
+		</linearGradient>
+		<polyline class="st1" points="119.7,87.4 119.7,9.5 157.9,55.7 196.6,9.5 196.6,87.4 "/>
+		</svg>
+
 
 
 		</a>
 		
-		<a href="/" class="menu-main">Главная</a>
-		<a href="/catalog" class="menu-catalog">Каталог</a>
-		<a href="/contacts" class="menu-contacts">Контакты</a>
-		<a href="/about us" class="menu-about_us">О нас</a>
+		<a href="/" class="menu-main menuR">Главная</a>
+		<a href="/catalog" class="menu-catalog menuR">Каталог</a>
+		<a href="/contacts" class="menu-contacts menuR">Контакты</a>
+		<a href="/about us" class="menu-about_us menuR">О нас</a>
 		{% if user.is_authenticated %}
-		<a href="/request list" class="menu-request"><div>Заявки</div></a>
+		<a href="/request list" class="menu-request menuR"><div>Заявки</div></a>
 		{% endif %}
-		<div class="search"><i id="searchBtn" style="color: black" class="fa fa-search fa-lg"></i></div>
+		<div class="search"><i id="searchBtn" style="color: black" class="fa fa-search fa-lg blackClose"></i></div>
 		<!-- <a href="/search" class="search" style="background: none; box-shadow: none; border: none; font-size: 18px">
 			<div>
 				<i style="color: black" class="fa fa-search"></i>
@@ -84,7 +85,7 @@
 			<form class="searchField" action="{% url 'search results' %}" method="get">
 				<input placeholder="поиск..." name="q" type="text" class="searchFieldInput">
 				<div style="margin-left: 20px;">
-					<button class="submitButton" type="submit">найти<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
+					<button class="submitButton" type="submit">найти<i style="margin-left: 10px; color: white" class="fa fa-search faSearch"></i>
 					</button>
 				</div>
 			</form>
@@ -95,32 +96,33 @@
 
 <div class="menuBtn" id="flex">
 	<div class="mainWrap" id="headerWrap">
-		<div class="search"><i id="searchBtn" style="color: black" class="fa fa-search fa-lg"></i></div>
+		<div class="search"><i id="searchBtn f2gsx7766435fa" class="fa fa-search fa-lg"></i></div>
 		<a href="/" class="logo">
-			<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
-			<svg version="1.1"
-				 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-				 x="0px" y="0px" width="41.1px" height="19px" viewBox="0 0 41.1 19" style="overflow:scroll;enable-background:new 0 0 41.1 19;"
-				 xml:space="preserve">
-			<style type="text/css">
-				.st0{fill:none;stroke:url(#SVGID_1_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st1{fill:none;stroke:url(#SVGID_2_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st2{fill:none;stroke:url(#SVGID_3_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-				.st3{fill:none;stroke:url(#SVGID_4_);stroke-width:3.651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-			</style>
-			<defs>
-			</defs>
-			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-0.5881" y1="1.6574" x2="15.0814" y2="17.3269">
-				<stop  offset="0" style="stop-color:#E9CE00"/>
-				<stop  offset="1" style="stop-color:#FF3F3F"/>
-			</linearGradient>
-			<path class="st0" d="M9.5,17.2H1.8V1.8h7.7c4.2,0,7.7,3.4,7.7,7.7v0C17.2,13.7,13.7,17.2,9.5,17.2z"/>
-			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="22.6359" y1="0.5347" x2="40.5509" y2="18.4497">
-				<stop  offset="0" style="stop-color:#E90700"/>
-				<stop  offset="1" style="stop-color:#2E2AFF"/>
-			</linearGradient>
-			<polyline class="st1" points="39.3,17.2 39.3,1.8 31.6,11.3 23.9,1.8 23.9,17.2 "/>
-			</svg>
+					<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
+		<svg version="1.1"
+			 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+			 x="0px" y="0px" width="41.1px" height="19px" viewBox="0 0 206.1 96.9"
+			 style="overflow:scroll;enable-background:new 0 0 206.1 96.9;" xml:space="preserve">
+		<style type="text/css">
+			.st0{fill:none;stroke:url(#SVGID_1_);stroke-width:19;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st1{fill:none;stroke:url(#SVGID_2_);stroke-width:19;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st2{fill:none;stroke:url(#SVGID_3_);stroke-width:19;stroke-linejoin:round;stroke-miterlimit:10;}
+			.st3{fill:none;stroke:url(#SVGID_4_);stroke-width:19;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+		</style>
+		<defs>
+		</defs>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="48.4375" y1="0" x2="48.4375" y2="96.875">
+			<stop  offset="0" style="stop-color:#FFBA00"/>
+			<stop  offset="1" style="stop-color:#BF0075"/>
+		</linearGradient>
+		<path class="st0" d="M48.4,87.4H9.5V9.5h38.9c21.5,0,38.9,17.4,38.9,38.9v0C87.4,69.9,69.9,87.4,48.4,87.4z"/>
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="158.15" y1="0" x2="158.15" y2="96.875">
+			<stop  offset="0" style="stop-color:#FFBA00"/>
+			<stop  offset="1" style="stop-color:#BF0075"/>
+		</linearGradient>
+		<polyline class="st1" points="119.7,87.4 119.7,9.5 157.9,55.7 196.6,9.5 196.6,87.4 "/>
+		</svg>
+
 
 
 		</a>
@@ -141,7 +143,7 @@
 			<div id="menu2" class="menuBtn1">
 				<div style="display: flex;">
 					<i id="navicon" class="fa fa-close fa-lg"></i>
-					<p style="margin:0 0 0 13px">Закрыть</p>
+					<p style="margin:0 0 0 13px">Скрыть</p>
 				</div>
 			</div>
 		</div>	

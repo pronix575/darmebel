@@ -13,13 +13,13 @@ $(document).ready(function(){
 			var nameOfFurniturePreview = $(elem).html()
 			var wid = screen.width, tSize = 0
 
-	    	tSize = 25
+	    	tSize = 30
     		
     		if (wid < 500) {
-    			tSize = 15
+    			tSize = 20
     		}
 	    	if (wid < 350) {
-	    		tSize = 10
+	    		tSize = 15
 	    	}
 			
 			if (nameOfFurniturePreview.length > tSize) {
@@ -34,14 +34,14 @@ $(document).ready(function(){
 			var nameOfFurniturePreview = $(elem).html()
 			var wid = screen.width, tSize = 0
 
-	    	tSize = 50
+	    	tSize = 40
 
 	    	if (wid < 720) {
-	    		tSize = 30
+	    		tSize = 32
 	    	}
     		
     		if (wid < 500) {
-    			tSize = 30
+    			tSize = 22
     		}
 	    	if (wid < 350) {
 	    		tSize = 17
@@ -72,6 +72,11 @@ $(document).ready(function(){
 
 	$("#deleteRequestBtn").click(function(){
 		$(".areYouShureToDelete").show()
+		
+		$(".formAreYouShure").css("margin-top", 50)
+	  	$(".formAreYouShure").css("opacity", 0.2)
+	  	$(".formAreYouShure").animate({"margin-top": "0px", "opacity": "1"}, 200);
+
 		tt11 = true
 	})
 
@@ -80,10 +85,7 @@ $(document).ready(function(){
 		tt11 = false
 	})	
 
-	$(".areYouShureToDelete").click(function(){
-		$(".areYouShureToDelete").toggle()
-		tt11 = false
-	})	
+
 
 	$(".nativeMenu").toggle()	
 
@@ -154,9 +156,12 @@ $(document).ready(function(){
 			tr = true
 		}
 	});
-		if ($(".noname").html() == "hello") {			
-			$(".search").css("display", "none")
-		}
+		
+	if ($(".noname").html() == "hello") {			
+		$(".search").css("display", "none")
+	}
+	
+	scrollMenu()
 
 	$(window).resize(function(){
 		if (screen.width > 650 && !trigger) {
@@ -170,7 +175,7 @@ $(document).ready(function(){
 
 		resizeOfFont()
 		resizeOfFontR()
-
+		scrollMenu()
 	});
 
 });

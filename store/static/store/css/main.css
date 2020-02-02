@@ -47,7 +47,6 @@ body {
 	position: fixed;
 	font-weight: bold;
 	background: rgb(255,255,255);
-	box-shadow: 0 6px 10px rgb(0,0,0,.3)
 }
 
 .logo, .search {
@@ -94,24 +93,24 @@ body {
 }
 
 #contentBlockWrapText {
-	background: rgba(0,0,0,.2);
-    backdrop-filter: blur(3px);
-	border-radius: 15px 15px 0 0;
-	padding: 20px 20px 20px 20px; 
+	/*background: rgba(0,0,0,.2);
+    backdrop-filter: blur(3px); 0
+	border-radius: 15px 15px 0 0;*/
+	padding: 0 0 20px 0; 
 	justify-content: space-between;
 	display: flex;
 	width: 760px;
 	height: auto;
-	font-size: 30px;
+	font-size: 10px;
 }
 
 .price {
-	padding: 10px 15px 10px 15px;
+/*	padding: 10px 15px 10px 15px;
 	background: white;
 	font-family: 'Roboto';
 	color: black;
 	border-radius: 10px;
-	box-shadow: 0 5px 10px rgb(0,0,0,0.3);
+	box-shadow: 0 5px 10px rgb(0,0,0,0.3);*/
 }
 
 .contentBlockWrap {
@@ -131,6 +130,34 @@ body {
 	width: 800px;
 }
 
+#mainPagePreview {
+	color: white;
+	font-weight: bold;
+		background-clip: border-box;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	max-height: 1200px;
+	box-shadow: inset 0 40px 60px rgb(0,0,0,.4);
+}
+
+#mainPagePreview h3 {
+	font-size: 32px;
+}
+
+#mainPagePreview p {
+	margin: 15px 0 0 0;
+	font-size: 19px;
+	font-weight: lighter;
+}
 
 .content {
 	margin-top: 50px; 
@@ -153,9 +180,9 @@ body {
 #contentBlock {
 	box-shadow: inset 0 -80px 60px rgba(0,0,0,0.6);
 	width: 100%;
-	height: 300px;
+	height: 350px;
 	margin-top: 20px;
-	padding: 255px 20px 20px;
+	padding: 305px 20px 20px;
 	background-clip: border-box;
 	background-size: cover;
     background-repeat: no-repeat;
@@ -219,7 +246,7 @@ body {
 } 
 
 .styleAndCategoryImage {
-	width: 80px; height: 80px; border-radius: 10px; border: 4px solid white; box-shadow: 0 15px 40px rgb(0,0,0,.5); margin-top: 20px; background-size: 150px; 
+	width: 80px; height: 80px; border-radius: 10px; border: 4px solid white; margin-top: 20px; background-size: 150px; 
 	background-clip: border-box;
 	background-size: cover;
     background-repeat: no-repeat;
@@ -320,6 +347,20 @@ body {
 	position: fixed;
 	font-weight: bold;
 	background: rgb(255,255,255);
+}
+
+.catalogBtn {
+	border: 3px solid white; 
+	padding: 10px; 
+	margin: 20px 0 0 0; 
+	border-radius: 15px;  
+	display: flex; justify-content: 
+	center; width: 100%
+}
+
+.catalogBtn:hover {
+	background: rgb(0,0,0,.4);
+	transition: .3s;
 }
 
 .sadEmoj {
@@ -423,6 +464,7 @@ body {
 }
 
 .areYouShureToDelete {
+	font-size: 20px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -440,14 +482,23 @@ body {
 }
 
 .formAreYouShure {
-	border-radius: 15px; 
-	padding: 20px;
+	max-width: 400px;
+	margin: 0 0 60px 0;
+	width: 100%;
+	border-radius: 14px; 
+	padding: 14px;
 	background: white;
 	box-shadow: 0 5px 10px rgb(0,0,0,.3);
 }
 
 .yesBtn, .noBtn {
-	font-size: 16px;
+	color: white;
+	width: 100%;
+	background: black;
+	padding: 5px 10px;
+	border-radius: 7px;
+	margin: 20px 0 0 0;
+	font-size: 17px;
 	transition: .2s;
 	cursor: pointer;
 	display: -webkit-flex;
@@ -457,17 +508,16 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 5px 10px;
-	border: 2px solid black;
-	border-radius: 10px;
 	font-weight: bold;
-	color: black;
 }
 
-.yesBtn:hover, .noBtn:hover {
-	background: black;
-	color: white;
+@media(max-width: 1080px) {
+	
+	#contentBlockWrapText h4, .price {
+		font-size: 17px;
+	}
 }
+
 
 @media(max-width: 800px) {
 	#contentBlockTextMainPage {
@@ -479,10 +529,6 @@ body {
 		padding: 120px 20px 0 20px;
 	}
 
-	#contentBlockWrapText {
-		width: 100%;
-		font-size: 30px;
-	}
 	.hrefInWorkDetail {
 		margin: 20px 0 0 0;
 		padding: 10px; 
@@ -507,27 +553,52 @@ body {
 	.contentBlockWrap {
 		padding: 0;
 	}
-
-	#contentBlock {
-		padding: 200px 20px 20px 20px;
-		height: 240px;
-	}
 }	
 
-@media(max-width: 350px) {
+.header {
+	box-shadow: 0 5px 10px rgb(0,0,0,.3);
+}
 
-	.styleBlock {
-		height: 140px;
-		padding: 105px 15px 0 15px;
-		font-size: 20px;
-	}
-
-	.Sdiv {
-		display: none;
-	}
-}	
+.menuBtn {
+	box-shadow: none;
+}
 
 @media(max-width: 650px) {
+	.styleBlock {
+		padding: 127px 10px 0 15px;
+		font-size: 18px;
+	}
+	
+	.header {
+		box-shadow: none;		
+	}	
+
+	.menuBtn {
+		box-shadow: 0 5px 10px rgb(0,0,0,.3);
+	}
+
+	#contentBlock {
+		padding: 195px 20px 20px 20px;
+		height: 240px;
+	}
+	
+	.contentBlock {
+		height: 300px;
+	}
+
+	#mainPagePreview h3 {
+		font-size: 26px;
+	}
+
+	#mainPagePreview p {
+		margin: 15px 0 0 0;
+		font-size: 16px;
+		font-weight: lighter;
+	}
+	
+	.header {
+		z-index: -100;
+	}
 
 	#menu2 {
 		color: white;
@@ -547,13 +618,17 @@ body {
 	.sadEmoj {
 		width: 100px;
 	}
-	.header {
+	.headerWrap {
 		display: none;
 	}
 
 	.menuBtn {
 		z-index: 10;
 	}	
+
+	#headerWrap {
+		display: flex;
+	}
 
 	.styleContainer {
 		width:  47.8%;
@@ -565,12 +640,14 @@ body {
 	}
 }	
 
-@media(max-width: 1080px) {
-	.contentBlock {
-		height: 400px;
+@media(max-width: 350px) {
+	.styleBlock {
+		height: 140px;
+		padding: 113px 10px 0 10px;
+		font-size: 16px;
 	}
-	
-	#contentBlockWrapText h4, .price {
-		font-size: 19px;
+
+	.Sdiv {
+		display: none;
 	}
-}
+}	
