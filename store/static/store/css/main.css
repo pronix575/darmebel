@@ -53,7 +53,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: black;
 }
 
 #headerWrap li a {
@@ -101,7 +100,7 @@ body {
 	display: flex;
 	width: 760px;
 	height: auto;
-	font-size: 10px;
+	font-size: 28px;
 }
 
 .price {
@@ -350,17 +349,19 @@ body {
 }
 
 .catalogBtn {
-	border: 3px solid white; 
-	padding: 10px; 
+	padding: 10px 20px; 
 	margin: 20px 0 0 0; 
-	border-radius: 15px;  
-	display: flex; justify-content: 
-	center; width: 100%
+	border-radius: 500px;  
+	display: flex; 
+	justify-content: center; 
+	cursor: pointer;
+	background: linear-gradient(45deg, #FFBA00, #BF0075); 
+	color: white;
 }
 
 .catalogBtn:hover {
-	background: rgb(0,0,0,.4);
-	transition: .3s;
+	color: black;
+	background: white;
 }
 
 .sadEmoj {
@@ -369,16 +370,13 @@ body {
 
 .nativeSearch {
 	transition: .8s;
-	justify-content: center;
-	align-items: center;
-	z-index: 9;
+	z-index: -109;
 	position: fixed;
 	width: 100%;
-	background: rgb(0,0,0,.5);
+	background: rgb(0,0,0,.7);
 	font-weight: bold;
 	height: 100vh;
 	backdrop-filter: blur(3px);
-	z-index: 9;
 }
 .hrefInWorkDetailA p {
 	color: black;	
@@ -399,27 +397,37 @@ body {
 	margin-top: 20px; 
 }
 
+.selectionOfCategory {
+	margin: 20px 0 0 0;
+	width: 100%;
+}
+.selectionOfCategory option {
+	margin: 5px 0 0 0;
+	font-weight: lighter;
+	color: 
+}
+
 .nativeMenu {
 	transition: .4s;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
-	display: flex;	
-	justify-content: center;
+	display: none;	
 	align-items: center;
 	z-index: 9;
 	position: fixed;
+	color: black;
 	width: 100%;
-	background: rgb(0,0,0,.5);
+	background: white;
 	font-weight: bold;
 	height: 100vh;
-	backdrop-filter: blur(3px);
+	/*backdrop-filter: blur(3px);*/
 }
 
 #menu2 div {
 	font-size: 20px;
-	width: 100%;
+	width: 1000px;
 	/*margin: 20px 0 0 0;*/
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -514,12 +522,22 @@ body {
 @media(max-width: 1080px) {
 	
 	#contentBlockWrapText h4, .price {
-		font-size: 17px;
+		
 	}
 }
 
+.header {
+	box-shadow: 0 5px 10px rgb(0,0,0,.3);
+}
+
+.menuBtn {
+	box-shadow: none;
+}
 
 @media(max-width: 800px) {
+	#contentBlockCategories { 
+		font-size: 20px;
+	}
 	#contentBlockTextMainPage {
 		padding: 0;
 	}
@@ -555,15 +573,11 @@ body {
 	}
 }	
 
-.header {
-	box-shadow: 0 5px 10px rgb(0,0,0,.3);
-}
-
-.menuBtn {
-	box-shadow: none;
-}
-
 @media(max-width: 650px) {
+	#contentBlockWrapText, .nameOfFurniturePreview, .price {
+		font-size: 18px;
+	}
+
 	.styleBlock {
 		padding: 127px 10px 0 15px;
 		font-size: 18px;
@@ -578,7 +592,7 @@ body {
 	}
 
 	#contentBlock {
-		padding: 195px 20px 20px 20px;
+		padding: 204px 20px 20px 20px;
 		height: 240px;
 	}
 	
@@ -601,7 +615,7 @@ body {
 	}
 
 	#menu2 {
-		color: white;
+		color: black;
 	}
 	
 	.menu-main {
@@ -641,6 +655,10 @@ body {
 }	
 
 @media(max-width: 350px) {
+	#contentBlockWrapText, , .nameOfFurniturePreview, .price {
+		font-size: 15px;
+	}
+
 	.styleBlock {
 		height: 140px;
 		padding: 113px 10px 0 10px;

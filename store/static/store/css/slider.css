@@ -78,7 +78,7 @@
   }
 
   .slider__item {
-    padding: 20px;
+    padding: 0px 20px 0 20px;
   }
   
   .slider__control_left {

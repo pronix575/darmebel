@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Work, Category, Style, Request, MainPagePreview
+from .models import Work, Category, Style, Request, MainPagePreview, Contact
 from django.db.models import Q
 from django.utils import timezone
 
@@ -9,12 +9,14 @@ def main_page(request):
     categories = Category.objects.all()[:5]
     styles = Style.objects.all()
     preview = MainPagePreview.objects.last()
+    contacts = Contact.objects.last()
 
     return render(request, 'store/main_page.html', {
         'works': works,
         'categories': categories,
         'styles': styles,
-        'preview': preview
+        'preview': preview,
+        'contacts': contacts
     })
 
 def work_detail(request, pk):
@@ -98,8 +100,13 @@ def request(request):
         name = request.POST.get('q_name')
         phone_number = request.POST.get('q_phone')
         email = request.POST.get('q_email')
-
-        Request.objects.create(name=name[0:50], phone=phone_number, email=email)
+        category_id = request.POST.get('select')
+        
+        if category_id == '':
+            Request.objects.create(name=name[0:50], phone=phone_number, email=email, category_id=0)
+        else:
+            Request.objects.create(name=name[0:50], phone=phone_number, email=email, category_id=category_id)    
+                    
 
         requests = Request.objects.all()
 
@@ -140,8 +147,14 @@ def request_detail(request, pk):
                 request221.is_viewed = True
                 request221.save()
 
+                if  request221.category_id != 0:
+                    category = Category.get_object_or_404(request221, pk=request221.category_id)
+                else:
+                    category = False
+
             return render(request, 'store/request_detail.html', {
-                "request": request221
+                "request": request221,
+                "category": category
             })
         else:
             return redirect('/e404')    
@@ -150,7 +163,11 @@ def request_detail(request, pk):
         return render(request, 'store/err404.html', {})  
 
 def contacts(request):
-    return render(request, 'store/contacts.html', {})
+    contacts = Contact.objects.last()
+
+    return render(request, 'store/contacts.html', {
+        'contacts': contacts
+    })
 
 def about_us(request):
     return render(request, 'store/about_us.html', {})

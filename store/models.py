@@ -42,6 +42,8 @@ class Request(models.Model):
     phone = models.CharField(max_length=500)
     email = models.EmailField(max_length=100)
 
+    category_id = models.IntegerField(default=0)
+
     created_date = models.DateTimeField(default=timezone.now)
     
     is_viewed = models.BooleanField(default="False")
@@ -51,6 +53,15 @@ class MainPagePreview(models.Model):
     name = models.CharField(max_length=50)
     preview = models.ImageField(upload_to='images/')
     description = models.TextField(default="")
+
+    def __str__(self):
+        return self.name
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+
+    phone_number = models.CharField(max_length=50)
+    addres = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

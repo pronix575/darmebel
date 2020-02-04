@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>ДарМебель</title>
+	<STYLE TYPE="text/css">overflow-x: hidden; overflow-y: auto;</STYLE>
 	<link rel="shortcut icon" href="/media/images/favicon.ico">
 	<link rel="apple-touch-icon" href="/media/images/favicon.png">
 
@@ -21,6 +22,8 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	
+	<script src="{% static 'store/js/slider.js' %}"></script>
 
 	<!-- script links -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -68,7 +71,7 @@
 		{% if user.is_authenticated %}
 		<a href="/request list" class="menu-request menuR"><div>Заявки</div></a>
 		{% endif %}
-		<div class="search"><i id="searchBtn" style="color: black" class="fa fa-search fa-lg blackClose"></i></div>
+		<div class="search"><i id="searchBtn" class="fa fa-search fa-lg blackClose"></i></div>
 		<!-- <a href="/search" class="search" style="background: none; box-shadow: none; border: none; font-size: 18px">
 			<div>
 				<i style="color: black" class="fa fa-search"></i>
@@ -76,6 +79,7 @@
 		</a> -->	
 	</div>
 </div>
+<script src="{% static 'store/js/search.js' %}"></script>
 
 <div class="nativeSearch">
 	<div class="contentBlockWrap" style="margin-top: 20px;">
@@ -96,7 +100,6 @@
 
 <div class="menuBtn" id="flex">
 	<div class="mainWrap" id="headerWrap">
-		<div class="search"><i id="searchBtn f2gsx7766435fa" class="fa fa-search fa-lg"></i></div>
 		<a href="/" class="logo">
 					<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In  -->
 		<svg version="1.1"
@@ -126,19 +129,41 @@
 
 
 		</a>
-		<div class="menuBtn1"><i id="navicon" class="fa fa-navicon fa-lg"></i></div>
+		
+		<div style="display: flex;justify-content: center;
+		align-items: center;">	
+			<div class="search" style="margin: 0 20px 0 0"><i id="searchBtn f2gsx7766435fa" class="fa fa-search fa-lg f2gsx7766435fa"></i></div>
+			<div class="menuBtn1">
+				<i id="navicon" class="fa fa-navicon fa-lg"></i>
+			</div>
+		</div>	
 	</div>
 </div>		
 
+<style type="text/css">
+	hr {
+		/*background: black;
+		width: 100vh;
+		border: 1.5px solid black;*/
+		display: none;
+	}
+</style>
+
 <div class="nativeMenu">
-	<div style="padding: 20px; margin: 40px 20px; border-radius: 15px width: 100%" class="nativeMenuWrap">
-		<div>
+	<div style="padding: 0px; margin: 40px 0px; border-radius: 15px width: 100%" class="nativeMenuWrap">
+		<div style="width: 100%">
+			<hr>
 			<a href="/" id="menu2" style="width: 100%; float: right;"><div><i class="fa fa-home" style="margin: 2px 15px 0 0"></i>Главная</div></a>
+			<hr>
 			<a href="/catalog" id="menu2"><div><i class="fa fa-th-large" style="margin: 2px 15px 0 0"></i>Каталог</div></a>
+			<hr>
 			<a href="/contacts" id="menu2"><div><i class="fa fa-phone-square" style="margin: 2px 15px 0 0"></i>Контакты</div></a>
+			<hr>
 			<a href="/about us" id="menu2"><div><i class="fa fa-info-circle" style="margin: 2px 15px 0 0"></i>О нас</div></a>
+			<hr>
 			{% if user.is_authenticated %}
 			<a href="/request list" id="menu2"><div><i class="fa fa-file-text" style="margin: 2px 15px 0 0"></i>Заявки</div></a>
+			<hr>
 			{% endif %}
 			<div id="menu2" class="menuBtn1">
 				<div style="display: flex;">
@@ -146,6 +171,7 @@
 					<p style="margin:0 0 0 13px">Скрыть</p>
 				</div>
 			</div>
+			<hr>
 		</div>	
 	</div>
 </div>
@@ -195,36 +221,8 @@
 			}
 		}	
 	</style>
-
-	<script type="text/javascript">
-		function browser()
-		{
-			var ua = navigator.userAgent;
-			
-		    if (ua.search(/MSIE/) > 0) return 'Internet Explorer';
-		    if (ua.search(/Firefox/) > 0) return 'Firefox';
-		    if (ua.search(/Opera/) > 0) return 'Opera';
-		    if (ua.search(/Chrome/) > 0) return 'Google Chrome';
-		    if (ua.search(/Safari/) > 0) return 'Safari';
-		    if (ua.search(/Konqueror/) > 0) return 'Konqueror';
-		    if (ua.search(/Iceweasel/) > 0) return 'Debian Iceweasel';
-		    if (ua.search(/SeaMonkey/) > 0) return 'SeaMonkey';
-			
-		    // Браузеров очень много, все вписывать смысле нет, Gecko почти везде встречается
-		    if (ua.search(/Gecko/) > 0) return 'Gecko';
-
-		    // а может это вообще поисковый робот
-		    return 'Search Bot';
-		}
-
-		// if (browser() != 'Safari') {
-		// 	$(".safDelete").css("display", 'none')
-		// }
-	</script>
 	
 </div>
-	<script src="{% static 'store/js/search.js' %}"></script>
-	<script src="{% static 'store/js/slider.js' %}"></script>
 	
 	<script>
 	function func_(oTextArea,nPos)

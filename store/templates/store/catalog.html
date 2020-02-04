@@ -23,8 +23,9 @@
 			{% for work in works reversed %}
 			<a href="{% url 'work_detail' pk=work.pk %}">
 				<div id="contentBlock" style="background-image: url({{ work.preview.url }});"> 
-					<div>
-						<p class="nameOfFurniturePreview">{{ work.name }}</p></p>
+					<div style="display: flex;justify-content: space-between;">
+						<p class="nameOfFurniturePreview">{{ work.name }}</p>
+						<p class="price">{{ work.price }} ₽</p>
 					</div>
 				</div>
 			</a>	

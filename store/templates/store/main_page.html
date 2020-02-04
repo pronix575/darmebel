@@ -2,18 +2,20 @@
 
 {% block content %}	
 {% load static from staticfiles %}
+
 <style type="text/css">.menu-main { border-bottom: 3px solid #0006ad; }</style>
 
-<div id="mainPagePreview" style="background-image: url({{ preview.preview.url }}); box-shadow: 0 5px 10px rgb(0,0,0,.3); z-index: 1"> 
+<div id="mainPagePreview" style="background-image: url({{ preview.preview.url }}); z-index: 1"> 
 	<div style="height: inherit; max-height: 1200px; background: rgb(0,0,0,.4); width: inherit; padding: 0px;" id="flex">
-		<div style="max-width: 800px; max-height: 1200px; display: -webkit-flex; padding: 0 20px; flex-direction: column; justify-content: space-between; align-items: center; 	align-content: space-between; height: inherit; padding: 20px">
-			<div></div>
+		<div style="max-width: 800px; max-height: 1200px; display: -webkit-flex; padding: 0 20px; justify-content: center; align-items: center;  height: inherit; padding: 20px">
 			<div>
 				<h3 style="margin: 0">{{ preview.name }}</h3>
 				<p style="color: #e6e6e6">{{ preview.description }}</p>
-			</div>
-			<div class="catalogBtn">каталог 
-				<i style="margin: 0 0 0 20px" class="fa fa-sort-desc"></i>
+				<div style="display: flex;justify-content: space-between;">	
+					<div class="catalogBtn">каталог 
+						<i style="margin: 0 0 0 20px" class="fa fa-sort-desc"></i>
+					</div>
+				</div>	
 			</div>
 		</div>	
 	</div>
@@ -25,63 +27,13 @@
 	})
 </script>
 
-<script type="text/javascript">
-
-	function scrollMenu() {
-		if (window.pageYOffset < 170) {
-			$(".menu-main").css("border-bottom", "3px solid white")
-			$(".menuR").css("color", "white")
-			$(".fa-search").css("color", "white")
-			$(".blackClose").css("color", "white")
-
-			$(".header").css("background", "none")
-			$(".menuBtn").css("background", "none")
-
-			$(".header").css("box-shadow", "none")
-			$(".menuBtn").css("box-shadow", "none")
-
-			$(".header").css("color", "white")
-			$(".menuBtn").css("color", "white")
-
-		} else {
-
-			if (window.innerWidth > 650) {
-				$(".header").css("box-shadow", "0 5px 10px rgb(0,0,0,0.3)")
-				$(".menuBtn").css("box-shadow", "none")
-			}	else {
-				$(".menuBtn").css("box-shadow", "0 5px 10px rgb(0,0,0,0.3)")
-				$(".header").css("box-shadow", "none")
-			}
-
-			$(".menu-main").css("border-bottom", "3px solid #0006ad")
-			$(".blackClose").css("color", "black")
-			$(".fa-search").css("color", "black")
-			$(".menuR").css("color", "black")
-			$(".faSearch").css("color", "white")
-
-			$(".header").css("background", "white")
-			$(".menuBtn").css("background", "white")
-
-			$(".header").css("color", "black")
-			$(".menuBtn").css("color", "black")
-		}
-	}
-
-	scrollMenu()
-
-	window.addEventListener('scroll', function() {
-  		scrollMenu()
-	});
-
-</script>
-
 <style type="text/css">
 	.content {
 		margin: 0;
 	}
 </style>
 <div id="flex">
-	<div class="slider" style="margin: 0px 0 0 0">
+	<div class="slider" style="margin: 20px 0 0 0">
 		<div class="slider__wrapper">
 		
 		{% for work in works %}
@@ -151,9 +103,17 @@
 	</div>
 </div>	
 
+
+
 <div id="flex">
 	<div class="mainWrap">
 		<div style="width: 100%;">
+			
+			<div class="request1" style="border-radius: 15px">
+				<h3 style="margin: 20px 0 0 0; display: flex;justify-content: space-between;"><span>контакты:</span><i class="fa fa-phone-square fa-lg"></i> </h3>
+				<p>номер телефона: <span style="font-weight: bold;">{{ contacts.phone_number}}</span></p>
+				<p>адрес: <span style="font-weight: bold;">{{ contacts.addres }}</span></p>
+			</div>	
 
 			<div class="request1" style="border-radius: 15px">
 				<h3 style="display: flex; justify-content: space-between;"><span>Оставьте заявку</span><i class="fa fa-send da-lg"></i></h3>
@@ -175,6 +135,13 @@
 
 							<input required placeholder="email" name="q_email" class="searchFieldInput" type="email">
 						</div>
+							
+						<!-- <select name="select" class="selectionOfCategory searchFieldInput" size="">
+							<option value="">выберите категорию</option>
+							{% for category in categories %}
+								<option value="{{ category.id }}">{{ category.name }}</option>
+							{% endfor %}
+						</select> -->
 
 						<div style="margin: 20px 0 0 0; display: flex; justify-content: center;"><div></div><button class="submitButton" type="submit">отправить<i style="margin-left: 10px;" class="fa fa-angle-double-right fa-lg"></i>
 							</button></div>
@@ -198,4 +165,82 @@
 		<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
 	</div>
 </div>	
+
+<div style="position: absolute; color: rgb(0,0,0,.0);" class="mainPageMarker">text</div>
+
+<script src="{% static 'store/js/slider.js' %}"></script>
+<script type="text/javascript">
+
+	$(".catalogBtn").click(function(){
+		if (screen.width < 650) {
+			var destination = $('.slider').offset().top - 70;
+			$('html, body').animate({ scrollTop: destination }, 400);
+		} else {
+			var destination = $('.slider').offset().top - 50;
+			$('html, body').animate({ scrollTop: destination }, 400);
+		}
+	})	
+
+	// 	$(".menuBtn1").click(function(){
+	// 	if (window.pageYOffset < 170) {
+	// 		$('html, body').animate({ scrollTop: $('.slider').offset().top - 70 }, 0);
+	// 	}	
+	// })	
+
+	var mainHeightR 
+
+	if (screen.width / screen.height > 1.9) {
+		mainHeightR = 25
+	} else {
+		mainHeightR = 165
+	}
+
+	function scrollMenu() {
+		if (window.pageYOffset < mainHeightR) {
+			$(".f2gsx7766435fa").css("color", "white")
+			$(".menu-main").css("border-bottom", "3px solid white")
+			$(".menuR").css("color", "white")
+			$(".fa-search").css("color", "white")
+			$(".blackClose").css("color", "white")
+
+			$(".header").css("background", "none")
+			$(".menuBtn").css("background", "none")
+
+			$(".header").css("box-shadow", "none")
+			$(".menuBtn").css("box-shadow", "none")
+
+			$(".header").css("color", "white")
+			$(".menuBtn").css("color", "white")
+
+		} else {
+
+			if (window.innerWidth > 650) {
+				$(".header").css("box-shadow", "0 5px 10px rgb(0,0,0,0.3)")
+				$(".menuBtn").css("box-shadow", "none")
+			}	else {
+				$(".menuBtn").css("box-shadow", "0 5px 10px rgb(0,0,0,0.3)")
+				$(".header").css("box-shadow", "none")
+			}
+
+			$(".f2gsx7766435fa").css("color", "black")
+			$(".menu-main").css("border-bottom", "3px solid #0006ad")
+			$(".blackClose").css("color", "black")
+			$(".fa-search").css("color", "black")
+			$(".menuR").css("color", "black")
+			$(".faSearch").css("color", "white")
+
+			$(".header").css("background", "white")
+			$(".menuBtn").css("background", "white")
+
+			$(".header").css("color", "black")
+			$(".menuBtn").css("color", "black")
+		}
+	}
+
+	scrollMenu()
+
+	window.addEventListener('scroll', function() {
+  		scrollMenu()
+	});
+</script>
 {% endblock %}	

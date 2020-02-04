@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Work, Style, Request, MainPagePreview
+from .models import Category, Work, Style, Request, MainPagePreview, Contact
 
 class ExampleAdmin(admin.ModelAdmin):
   def has_add_permission(self, request):
@@ -9,8 +9,9 @@ class ExampleAdmin(admin.ModelAdmin):
     else:
       return True
 
+admin.site.register(Contact, ExampleAdmin)
 admin.site.register(MainPagePreview, ExampleAdmin)
 admin.site.register(Category)
 admin.site.register(Work)
 admin.site.register(Style)
-
+admin.site.register(Request)

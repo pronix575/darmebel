@@ -14,9 +14,9 @@
 				<p>email: <span style="font-weight: bold;" class="emailRequestJs">{{ request.email }}</span></p>
 			</div>
 			
-			<p style="display: flex;justify-content: space-between;align-items: center; margin: 20px 0 0 0">
+			<p style="display: flex;justify-content: space-between;align-items: center; margin: 15px 0 0 0">
 				<span>{{ request.created_date }}</span>
-				<i style="background:red; border-radius: 10px;color: white; padding: 8px 9px; box-shadow: 0 2px 5px rgb(0,0,0,.3)" id="deleteRequestBtn" class="fa fa-trash-o"></i>
+				<i style="background:red; border-radius: 10px;color: white; padding: 8.5px 10px;" id="deleteRequestBtn" class="fa fa-trash-o"></i>
 			</p>
 
 
@@ -63,7 +63,6 @@
 	}
 
 	$( ".yesBtn" ).click(function(){
-		console.log("fuck") 
 	    window.location.replace('/request list')
 
 		$.ajax({
